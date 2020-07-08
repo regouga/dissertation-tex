@@ -1,0 +1,65 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Jameson et~al.(1998)Jameson, Pierce, and
+  Martinelli]{jameson:adjointns}
+A.~Jameson, N.~A. Pierce, and L.~Martinelli.
+\newblock Optimum aerodynamic design using the {Navier}--{S}tokes equations.
+\newblock In \emph{Theoretical and Computational Fluid Dynamics}, volume~10,
+  pages 213--237. Springer-Verlag GmbH, Jan. 1998.
+
+\bibitem[Nocedal and Wright(2006)]{nocedal:opt}
+J.~Nocedal and S.~J. Wright.
+\newblock \emph{Numerical optimization}.
+\newblock Springer, $2^{nd}$ edition, 2006.
+\newblock ISBN:978-0387303031.
+
+\bibitem[Marta et~al.(2007{\natexlab{a}})Marta, Mader, Martins, van~der Weide,
+  and Alonso]{marta:ijcfd}
+A.~C. Marta, C.~A. Mader, J.~R. R.~A. Martins, E.~van~der Weide, and J.~J.
+  Alonso.
+\newblock A methodology for the development of discrete adjoint solvers using
+  automatic differentiation tools.
+\newblock \emph{International {J}ournal of {C}omputational {F}luid {D}ynamics},
+  99\penalty0 (9--10):\penalty0 307--327, Oct. 2007{\natexlab{a}}.
+\newblock doi:10.1080/10618560701678647.
+
+\bibitem[Marta(2007{\natexlab{a}})]{marta:ijcfd1}
+A.~C. Marta.
+\newblock A methodology for the development of discrete adjoint solvers using
+  automatic differentiation tools.
+\newblock \emph{International {J}ournal of {C}omputational {F}luid {D}ynamics},
+  1\penalty0 (9--10):\penalty0 307--327, Oct. 2007{\natexlab{a}}.
+\newblock doi:10.1080/10618560701678647.
+
+\bibitem[Marta(2007{\natexlab{b}})]{marta:ijcfd2}
+A.~C. Marta.
+\newblock A methodology for the development of discrete adjoint solvers using
+  automatic differentiation tools.
+\newblock \emph{International {J}ournal of {C}omputational {F}luid {D}ynamics},
+  2\penalty0 (9--10):\penalty0 307--327, Oct. 2007{\natexlab{b}}.
+\newblock doi:10.1080/10618560701678647.
+
+\bibitem[Marta et~al.(2007{\natexlab{b}})Marta, Mader, Martins, van~der Weide,
+  and Alonso]{marta:ijcfd3}
+A.~C. Marta, C.~A. Mader, J.~R. R.~A. Martins, E.~van~der Weide, and J.~J.
+  Alonso.
+\newblock A methodology for the development of discrete adjoint solvers using
+  automatic differentiation tools.
+\newblock \emph{International {J}ournal of {C}omputational {F}luid {D}ynamics},
+  3\penalty0 (9--10):\penalty0 307--327, Oct. 2007{\natexlab{b}}.
+\newblock doi:10.1080/10618560701678647.
+
+\bibitem[Marta(2007{\natexlab{c}})]{marta:ijcfd4}
+A.~C. Marta.
+\newblock A methodology for the development of discrete adjoint solvers using
+  automatic differentiation tools.
+\newblock \emph{International {J}ournal of {C}omputational {F}luid {D}ynamics},
+  4\penalty0 (9--10):\penalty0 307--327, Oct. 2007{\natexlab{c}}.
+\newblock doi:10.1080/10618560701678647.
+
+\end{thebibliography}

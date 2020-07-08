@@ -1,302 +1,88 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% README %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                      %
-%  ---------- Master of Science Dissertation template ----------       %
-%                                                                      %
-%  Template for the Master Thesis according to the regulations         %
-%  published by the Academic Board (Direcção Académica) at IST.        %
-%                                                                      %
-%  For up-to-date guide, please refer to the offical website           %
-%  http://da.tecnico.ulisboa.pt/dissertacao-de-mestrado/               %
-%                                                                      %
-%       Andre C. Marta                                                 %
-%       Area Cientifica de Mecanica Aplicada e Aeroespacial            %
-%       Departamento de Engenharia Mecanica                            %
-%       Instituto Superior Tecnico                                     %
-%       Av. Rovisco Pais                                               %
-%       1049-001 Lisboa                                                %
-%       Portugal                                                       %
-%       Tel: +351 21 841 9469                                          %
-%                        3469 (extension)                              %
-%       Email: andre.marta@ist.utl.pt                                  %
-%                                                                      %
-%  Created:       Jan 20, 2011                                         %
-%  Last Modified: Mar 30, 2016                                         %
-%                                                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Contents                                                            %
-%  1 - Package contents                                                %
-%  2 - Running on Linux                                                %
-%  3 - Running on Windows                                              %
-%  4 - Running on Mac                                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGE CONTENTS                                                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-This set of files provide a template for using LaTeX to write a Master
-or PhD thesis according to the IST regulations.
-
-The main file is 'Thesis.tex' and it includes all the other .tex files
-in the ZIP package:
-
-	Thesis.TeX
-		Thesis_Preamble.tex
-		Thesis_FrontCover.tex
-		Thesis_Dedication.tex
-		Thesis_Acknowledgements.tex
-		Thesis_Resumo.tex
-		Thesis_Abstract.tex
-		Thesis_Nomenclature.tex
-		Thesis_Glossary.tex
-		Thesis_Introduction.tex
-		Thesis_Implementation.tex
-		Thesis_<new chapters>.tex
-		Thesis_Results.tex
-		Thesis_Conclusions.tex
-		Thesis_Appendix_A.tex
-		Thesis_Appendix_B.tex
-		Thesis_bib_DB.bib
-		abbrvunsrtnat.bst
-		glossary.sty
-		IST_A_CMYK_POS.pdf		
-		Makefile
-
-It is not required that you are familiar with LaTeX since the files
-should be quite self explanatory.
-Please be sure you understand the structure before you start editing.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RUNNING ON LINUX                                                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Just use the make file 'Makefile' to process the LaTeX code and output
-the PDF file.
-Under Linux, this means typing 'make' at the terminal prompt.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RUNNING ON WINDOWS                                                   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-To run LaTeX on Windows, it is required to install additional software,
-if it has not been done before.
-
-The instructions below are just three possible solutions, but they proved
-robust during tests.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a) Software download
-
-i) compiler:
-MiKTeX 2.9 (or later)
-Download from http://miktex.org/2.9/setup
-
-This version appears to be quite stable. Search for more recent releases
-if available.
-
-ii) text editor:
-
-Choose one of the suggested three editors below. See http://en.wikipedia.org/wiki/Comparison_of_TeX_editors for helping you choose.
+The Thesis-MSC LaTeX template can be used for Instituto Superior Técnico Master of Science thesis of DEI (or other departments), as it follows the regulations published by the Scientific Council of IST.
 
-Option 1: Texmaker 4.4.1 (or later)
-Download from http://www.xm1math.net/texmaker/download.html
+To start using, just open and modify your data in the following files:
 
-This editor is nice because it allows two windows,
-showing both the source code and the compiled pdf, simultaneously.
-It also automatically installs and updates any necessary LaTeX package.
+1. Thesis-MSc-Preamble_commands.tex
+Select the ‘main’ language of your thesis in the line that loads the package ‘babel’:
+line.22
+	\usepackage[main=english,portuguese]{babel}	
+	or 
+	\usepackage[english,main=portuguese]{babel}
+	
+The thesis document will then auto-magically modify all the adequate keywords, titles, captions, etc. according to the selected language.
 
-Option 2: TeXstudio 2.9.4 (or later)
-Download from http://texstudio.sourceforge.net/
+Later, you may modify parameters or include other packages if deemed necessary.
 
-this editor also provides modern writing support, such as interactive spell checking, code folding, and syntax highlighting.
-It is an extended version of the previous one with additional features while keeping its look and feel.
+To deliver a PDF version without annotations/todonotes, Track Changes, you need to modify the options as follows:
 
-Option 3: TeXworks 0.4.6 (or later)
-Download from https://www.tug.org/texworks/
+For TODO Notes, the following lines:
+line.121/122
+    % use the line with the 'disable' option for the TODO Notes
+    \usepackage[textwidth=2cm, textsize=small, disable]{todonotes}
+ 
+For Track Changes, the following lines: 
+line.130/131
+    % use the line with the 'final' option for the Track Changes
+    \usepackage[authormarkup=superscript,authormarkuptext=id,markup=underlined,ulem={ULforem,normalbf},final]{changes}
 
-This editor already comes included in the MiKTeX installation.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-b) Installation notes
 
-i) Compiler
-------------------------
->>> MiKTeX
-First install this compiler. Just follow the on screen instructions.
 
-Accept the default directory paths so that Texmaker can automatically
-find the required executables for compilation (pdflatex, makeindex,
-bibtex, etc).
+2. Thesis-MSc-Front_Cover.tex
+In this document insert your data (your full name, thesis titles, supervisors names, date, degree, etc.):
 
-ii) text editor:
-------------------------
+	\title{}
+	\subtitle{}
+	\author{}
+	\degree{}
+	\supervisor{}
+	\othersupervisor{}
+	\date{}
 
-After the compiler is installed, the TeX editor can then be installed.
-Follow the on screen instructions.
+For Tracking changes, you can also replace the id of the collaborators, in the lines:
 
-After installation, it is necessary to configure the compilation
-commands and, optionally, define shortcuts.
+    \definechangesauthor[color=colorname]{id}
 
->>> a) Texmaker
+For a draft thesis (before examination) modify the following command to the value ‘false’:
 
-Texmaker -> Options (menu bar) -> Configure Texmaker ->
-Compile (left menu) -> User
+	\finalthesis{false}
 
-Add the following commands without line breaks (this replicates the makefile used in Linux):
+If it is for the final version (approved after examination) then modify the command to the value ‘true’:
 
-pdflatex %.tex | 
-makeindex %.glo -s %.ist -t %.glg -o %.gls | 
-makeindex %.nlo -s nomencl.ist -o %.nls | 
-bibtex %.aux | 
-pdflatex -synctex=1 -interaction=nonstopmode %.tex | 
-pdflatex -synctex=1 -interaction=nonstopmode %.tex
+	\finalthesis{true}
 
-The last command is optional and depends on the version of Acrobat
-Reader installed.
-If it is not installed, download it from http://get.adobe.com/reader/
+and include the full names of all the members of the Examination Committee (except the Supervisor):
 
->>> b) TeXstudio
+	\chairperson{}
+	\vogalone{}
+	\vogaltwo{}
+	\vogalthree{}
 
-TeXstudio -> Options (menu bar) -> Configure TeXstudio ->
-Build (left menu) -> User Commands
+3. The content of your thesis will be written in the documents in folder ‘Chapters’
+Do not modify the ‘header’ in all those documents, except the name of the document as it contains compilation directives.
+ 
+If you need to add more Chapters, just create new .tex documents and add the header.
+If you do not need that many Chapters in your thesis, just comment the lines in the main document:
 
-Press "+Add"
-Rename command from "user0:" to "THESIS"
-Add the following commands without line breaks (this replicates the makefile used in Linux):
+  	‘Thesis-MSc-Main_Document.tex’
 
-pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex | 
-makeindex %.glo -s %.ist -t %.glg -o %.gls | 
-makeindex %.nlo -s nomencl.ist -o %.nls | 
-bibtex.exe % | 
-pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex | 
-pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex
+For example, if you do not need a 6th Chapter, comment the following lines:
 
->>> c) TeXworks
+	%Chapter 6
+	\input{./Chapters/Thesis-MSc-Chapter_6.tex}
+	% If Printing on DOUBLE SIDED pages, the second page should be white.
+	% Otherwise, comment the following command:
+	\cleardoublepage
 
-Create a script in a plain text file, e.g. "TeXworks_compile.bat", with the following lines
+4. Thesis-MSc-Bibliography.bib
+This file is the default Bibliography database. 
+If you are using Mendeley.com as Reference Manager, you can link the .bib file to your account in that swervice in order to keep the data automatically synchronized.
+For those purposes, replace that file with your own file, and if the name is different, just modify the corresponding line in in the main document ‘Thesis-MSc-Main_Document.tex’:
 
-pdflatex Thesis
-makeindex Thesis.glo -s Thesis.ist -t Thesis.glg -o Thesis.gls
-makeindex Thesis.nlo -s nomencl.ist -o Thesis.nls
-bibtex Thesis
-pdflatex Thesis
-pdflatex Thesis
+	\bibliography{./Thesis-MSc-Bibliography}
 
-note: edit included file "TeXworks_compile.bat" as desired
+#####################
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-c) Compile LaTeX source
+Enjoy
 
->>> a) Texmaker
-
-Open the main file "Thesis.tex" in Texmaker, go to "Options" and select "Define Current Document as Master Document" (one time only).
-
-To compile, just click on the blue arrow next to "Compile" (making sure the main TeX source is open).
-
-To compile from any open file, the compilation commands have to be edited, replacing % by the main file name.
-
->>> b) TeXstudio
-
-To compile, just select Tools (menu bar) -> User -> THESIS:, making sure the main TeX source is open.
-
->>> c) TeXworks
-
-To compile, execute the previously created batch script.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-d) Define shortcuts (optional)
-
-It is possible to program shortcuts.
-It is advisable to assign the function keys Fx to the "compile", "clean" and "see pdf" functions.
-
->>> a) Texmaker
-
->>> b) TeXstudio
-
-TeXstudio -> Options (menu bar) -> Configure TeXstudio ->
-Shortcuts (left menu)
-
-Menu -> Tools -> User
-1:THESIS
-edit Current Shortcut F5
-
-Now to compile the entire document, just press F5
-
->>> c) TeXworks
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RUNNING ON MAC                                                 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-To run LaTeX on Mac, it is required to install additional software,
-if it has not been done before.
-
-The instructions below is just one possible solution, but it proved
-robust during tests.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a) Software download
-
-i) compiler:
-
-MacTex 
-Download from https://tug.org/mactex/downloading.html
-
-This version appears to be quite stable. Search for more recent releases
-if available.
-
-ii) text editor:
-
-Texpad
-Download from https://www.texpadapp.com/osx
-
-This editor is nice because it allows two windows,
-showing both the source code and the compiled pdf, simultaneously.
-It also automatically installs and updates any necessary LaTeX package.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-b) Installation notes
-
-i) Compiler
-------------------------
->>> MacTex
-First install this compiler. Just follow the on screen instructions.
-
-Accept the default directory paths so that Texpad can automatically
-find the required executables for compilation (pdflatex, makeindex,
-bibtex, etc).
-
-ii) text editor:
-------------------------
-
-After the compiler is installed, the TeX editor can then be installed.
-Follow the on screen instructions.
-
-After installation, it is necessary to configure the compilation
-commands and, optionally, define shortcuts.
-
->>> a) Texpad
-
-Click on the arrow next to “pdfLaTeX | BibTeX | Makeindex” -> Toggle “Typeset Configuration” to “Manual”
-
-Check “Nomenclature” and “Glossaries”
-
-Restart Texpad
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-c) Compile LaTeX source
-
->>> a) Texpad
-
-To compile, just click on “Typeset” on the superior left corner
-
-Optionally, it is possible to activate “Auto-Typeset” clicking on the arrow mentioned in b)->ii)->a). Now every change made to the code is automatically compiled
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+Rui Santos Cruz
