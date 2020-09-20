@@ -14,6 +14,7 @@ Finally, we outline the concept of interactive radio by presenting several impor
 
 % #############################################################################
 \section{Music Streaming Services}
+\label{subchap:mss}
 Music streaming services allow user access to millions of musical content from any web-connected computer, legally and free or with a low charge ~\cite{Swanson2013}. This kind of service marked an important cultural shift from old to new media ~\cite{Glantz2016}. But what attracts listeners to these services?
 
 Various studies have explored the factors that determine consumers’ decisions about adopting digital music streaming services. Vlachos et. al ~\cite{Vlachos2003} identified content and convenience attributes as key indicators of consumers' willingness to use music streaming services. According to Weijters et. al ~\cite{Weijters2014}, there are eight main factors that drive users to adopt these services: audio quality, business model, legality, ethicality, video capability, search/suggest features, connection to social media, and delivery mode (download vs. streaming). Furthermore, Stark et. al ~\cite{Stark2013} have concluded that listeners rely on streaming services primarily for recreation and relaxation and that their listening sessions can happen over an entire day. Glantz et. al ~\cite{Glantz2016} has studied how streaming music services create and embrace opportunities to fit themselves into the lives of music fans while comparing them with terrestrial radio, while Swanson ~\cite{Swanson2013} has studied what users expect from listening to streaming services as an interactive medium, and what are the gratifications sought when tuning into them, also in comparison to terrestrial radio. Finally, Datta et. al ~\cite{Datta2018} have studied how the adoption of music streaming services affects listening behavior of users. 
@@ -221,6 +222,19 @@ In the ambit of such case study, the researchers concluded that \textit{'a more 
 \subsection{Analysis}
 %Tabela comparativa das interative radio
 
+To facilitate the comparison between the mentioned platforms that implement and augment the interactive radio concept, Table ~\ref{tab:irfeatures} was created, with lines representing a given platform and columns showing some common and relevant features. We selected these features because we consider them to be the most important in the ambit of our case study. The mentioned features are:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Audio notifications (interrupts current activity);
+	\item News and social feeds (RSS, Facebook, Twitter);
+	\item Integration with local (offline) music library;
+	\item Integration with music streaming services;
+	\item Speech synthesis of information (text-to-speech);
+	\item On-site information rendering;
+	\item Audio effects (adverts, jingles, background music);
+	\item Social network/community features;
+	\item Customization and recommendations;
+\end{enumerate}
 
 
 \begin{table}[]
@@ -228,16 +242,23 @@ In the ambit of such case study, the researchers concluded that \textit{'a more 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 \hline
-              & (a)                         & (b)                         & (c)                         & (d)                        & (e)                         & (f)                         & (g)                         & (i)                         & (f)                         \\ \hline
+              & (a)                         & (b)                         & (c)                         & (d)                        & (e)                         & (f)                         & (g)                         & (h)                         & (i)                         \\ \hline
 Nomadic Radio & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  \\ \hline
 AudioFeeds    & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  \\ \hline
-Radialize     & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{9AFF99}Yes \\ \hline
-MyMyRadio     & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No  \\ \hline
+Radialize     & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes \\ \hline
+MyMyRadio     & \cellcolor[HTML]{FFCCC9}No  & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes  & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{9AFF99}Yes & \cellcolor[HTML]{FFCCC9}No & \cellcolor[HTML]{FFCCC9}No  \\ \hline
 \end{tabular}%
 }
 \caption{Summary of the analyzed interactive radio and calm computing platforms}
-\label{tab:mssfeatures}
+\label{tab:irfeatures}
 \end{table}
 
+The first feature determines if the system uses audio as notification of content, which interrupts the current activity of the listener ~\cite{Dingler2010}. The MyMyRadio system inserts content naturally between music tracks to allow continued attention in the periphery, which can result in an improved experience for the user.
 
-In conclusion, the concept of 'interactive radio' can be further augmented, as, at first sight, there is a user impulse for this to happen. Based on our research, this may be achieved by merging the strengths of both traditional terrestrial radio and music streaming services into a personal, yet sharable platform that aims to improve audio media consumers' listening experience. To assure this need, we'll conduct in-depth user research, aiming at understanding if users find such concept enticing.
+Regarding the more social features, AudioFeeds and MyMyRadio provide integration with various social networks and news aggregation services, but AudioFeeds does not render the information locally as MyMyRadio does. This gives an advantage to the latter platform, which uses speech synthesis to render the headline so that only content which is of interest to users is brought to their attention. ~\cite{Aylett2015} However, although it aggregates displays content from social networks, MyMyRadio doesn't offer a truly social experience between users of the platform, and this is where Radialize has an advantage over the studied platforms.
+
+By analyzing the table, we can observe that MyMyRadio is the most feature-packed platform, closely aligning with the scope of our project. It features a radio-like experience for its users by including audio dynamically created from news and social media sources, integration with the users' local music library, non-speech audio sound effects, and background music. 
+
+Yet, we can observe that none of the studied platforms offer integration with music streaming services, which, as we discussed in section ~\ref{subchap:mss}, are now one of the preferred mediums for consuming audio content. Furthermore, only one platform offers a truly customizable experience tailored to each individual user, while also indulging them in a social-network like atmosphere. Identifying this will be important for defining our window of opportunity and to determine out how we can create a novel listening experience.
+
+In conclusion, the concept of interactive radio can be further augmented, as, at first sight, there is both a user impulse for this to happen, and an opportunity that we can approach and tackle. Based on our research, this may be achieved by merging the strengths of both traditional terrestrial radio and music streaming services into a personal, yet sharable and customizable platform that aims to improve audio media consumers' listening experience. To assure this need, we'll conduct in-depth user research, aiming at understanding if users find such concept enticing.
