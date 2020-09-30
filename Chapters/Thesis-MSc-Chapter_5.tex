@@ -6,74 +6,82 @@
 \fancychapter{Sterio System}
 \cleardoublepage
 % The following line allows to ref this chapter
-\label{chap:evaluation}
+\label{chap:steriosystem}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros. 
+To understand the tasks that our platform must fulfill, the first steps we have taken were an investigation and analysis of the currently available music streaming platforms and terrestrial radio stations, identifying the strengths, weaknesses, and opportunities of each. At the same time, we have conducted a study on the available literature that addresses theses mediums and the vital concept of interactive radio. Further, we have overseen a thorough user research study by conducting a survey, a diary study, and interviews, and, most importantly, by applying the speed dating method. As we're applying user-centered design and human-computer interaction principles and methodologies, our users must be involved in the development of the project from the very early stages. This will maximize the quality of the user experience of the solution, and the earlier the user is involved, the less repair work needs to be done at the final stages of the project's life cycles.~\cite{Courage2005}
+
+After the presented research, we can identify our opportunity and act upon it. As such, in the first stage, we need to determine our requirements and accordingly plan the features and tasks that are going to be made available on the platform to fulfill our users' desires. The gathered datasets from sections ~\ref{chap:relatedwork}, ~\ref{chap:userresearch}, and ~\ref{sec:speeddating} provided pivotal information that helped fulfill this task. Then, after we've outlined the goals that our platform must satisfy, we can outset the development of a functional prototype with a working feature set and near ready for general-purpose usage.
+
+In this section, we explain in greater detail the development process that led us to the final Sterio platform. We begin by outlining the requirements and goals that our solution must fulfill. Afterward, we discuss and examine the adopted technologies and services, as well as the overall architecture of the system. Finally, we present a complete overhaul of the crafted features by describing the methods, technical facets, and reasoning behind all components of the application.
+
+
 % #############################################################################
-\section{Maecenas vitae nulla consequat} 
-Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus. Nunc porttitor nunc a sem. Sed sollicitudin velit eu magna. Aliquam erat volutpat. Vivamus ornare est non wisi. Proin vel quam. Vivamus egestas. Nunc tempor diam vehicula mauris. Nullam sapien eros \Cref{fig:test_env}, facilisis vel, eleifend non, auctor dapibus, pede.
+\section{Requirements} 
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{./Images/test_env}
-\caption{Test Environment}
-\label{fig:test_env}
+Taking into account all the conducted research regarding previous work, and by identifying and understanding our users' needs, we were able to identify a concrete set of features that we expect our solution to tackle. These features can be described as followed:
+
+\begin{itemize}
+	\item Creation of personalized radio stations, allowing users to select their desired audio content (by songs, albums, artists, playlists or others) using an on-demand music streaming service, or even add to the station other audio media content such as podcasts or audiobooks;
+	\item A 'virtual radio host' based on text-to-speech technology is attributed to a given station, allowing content to be delivered in the periphery during that session (news, weather, traffic, social feeds, information about friends and family, and other types of readable information);
+	\item A high level of customization of such radio stations and of its content must be available, allowing users to choose how often they would like to listen to each sort of content, the specific topics or themes of each audible content, the voice of the 'virtual radio-host' from the selection of the available text-to-speech voices, among other functionalities;
+	\item The 'virtual radio host' mimics as best as possible a 'real' radio host, promoting interaction, human connection, and empathy between the listeners and their ‘own radio host’. Plus, audible divisors and elements, as well as other radio-familiar components are introduced along the session, so that these personal radio stations are as natural as possible, reassembling a 'real' radio station;
+	\item A high level of shareability of the created radio stations, social/informative content, and other elements, allowing a simultaneous listening experience of radio stations among the platform's users, reproducing the same community feeling as traditional terrestrial radio, while at the same time indulging audio listeners in a social-network like atmosphere.
+\end{itemize}
+
+In the end, a general-purpose platform will emerge that creates a novel listening experience by merging the best functionalities of both music streaming services and traditional terrestrial radio in a personalized, integrated and social experience that may be shared with users' friends and family.
+
+
+% #############################################################################
+
+
+\section{Architecture}
+
+The Sterio platform was developed following a layered architecture which not only supports the incremental development of systems but provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected. Furthermore, every layer of the Sterio system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
+
+The three main layers that compose our system are the Presentation, the Business, and the Database Layer, represented in Figure CENAS. In the following subsections, we explain in greater detail the role of each layer, as well as the reasoning and advantages of the used frameworks and technologies. 
+
+\subsection{Database Layer}
+
+The Database Layer is responsible for managing and storing all the data that it is used in the Sterio system. It receives information entered by the application's users and answers accordingly with the requested information from the Business Layer. 
+
+The first development step of the platform was the creation of an entity-relationship model so that we can model the database and determine which entities we need based on the medium-fidelity prototype described in section ~\ref{sec:userenactments}. The representation of this model, shown in Figure CENAS, will help us visualize and conceptualize the system in the first stage, which will help reduce the development difficulty and discard preliminary oversights.
+
+The implementation of the database was conducted using Google's Cloud Firestore, which is a NoSQL, document-oriented database. 
+
+
+
+Each document contains a set of key-value pairs. Cloud Firestore is optimized for storing large collections of small documents.
+
+, which is an open-source document database, that was de- signed to be robust, flexible and scalable [25]. It uses an ordered set of keys with associated values that in JavaScript are represented as objects. We decided to use this type of database since it is an open-source project that allows scalability in the future, and it uses objects that allows the storing of all kinds of data quickly.
+
+It should also be noted that the system is prepared to be easily customised and to receive new values if the project has any changes in the way we approach some of its points.
+
+
+\subsection{Business Layer}
+
+\subsection{Presentation Layer}
+
+The third layer is the Presentation Layer, which is responsible for the interaction between the user and the system. This layer will interact with the business layer through calls to the REST API.
+
+Based on the preliminary user research presented in section ~\ref{chap:userresearch}, and corroborating with the data shown in Figure ~\ref{chart:devices}, most users listen to music streaming services on their smartphone. Furthermore, as we want our platform to be easily accessible on the go, we focused our efforts in analyzing the most popular mobile development frameworks to develop our platform on.
+
+\begin{figure}
+	\centering
+	\caption{Share of internet users who have used a music streaming services in the last month worldwide in 2nd quarter 2017, by device (Statista / GlobalWebIndex)}
+	\label{chart:devices}
+	\begin{bchart}[step=10,max=45,unit=\%,width=0.8\textwidth]
+        \bcbar[text=Smartphone (Mobile)]{39}
+            \smallskip
+        \bcbar[text=PC / Laptop]{30}
+            \smallskip
+        \bcbar[text=Tablet]{8}
+    \end{bchart}
 \end{figure}
 
-Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus. Nunc porttitor nunc a sem. Sed sollicitudin velit eu magna. Aliquam erat volutpat. Vivamus egestas. Nunc tempor diam vehicula mauris. Nullam sapien eros, facilisis vel, eleifend non, auctor dapibus, pede \Cref{tab:network_profiles} used in the tests. The Network Link Conditioner allows to force/simulate fluctuations in fixed network segments.
 
-\begin{table}[htb]
-\centering
-\normalsize
-    \caption{Network Link Conditioner Profiles}
-    \label{tab:network_profiles}
-{\footnotesize
-    \begin{tabular}{ | c | c | c | c | }
-    \hline 
-    \textbf{Network Profile}	& \textbf{Bandwidth} & \textbf{Packets Droped} & \textbf{Delay}\\ \hline \hline
-    Wifi  & 40 mbps  &  0\%  &   1 ms \\ \hline
-    3G  & 780 kbps  &  0\%  &   100 ms \\ \hline 
-    Edge  & 240 kbps  &  0\%  &   400 ms \\ \hline
-    \end{tabular}
-    }
-\end{table}
+We chose to develop the Sterio platform using Flutter, which is an UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Flutter apps are written in the Dart programming language and make use of many of the language's more advanced features.
 
-Aliquam aliquet, est a ullamcorper condimentum, tellus nulla fringilla elit, a iaculis nulla turpis sed wisi. Fusce volutpat. Etiam sodales ante id nunc. Proin ornare dignissim lacus. Nunc porttitor nunc a sem. Sed sollicitudin velit eu magna. Aliquam erat volutpat. Vivamus ornare est non wisi. Proin vel quam. Vivamus egestas. Nunc tempor diam vehicula mauris. Nullam sapien eros, facilisis vel, eleifend non, auctor dapibus, pede.
-% #############################################################################
-\section{Proin ornare dignissim lacus}
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+In the context of our project, Flutter has some key advantages over other technologies. To start, although it has been built as a mobile-first toolkit in the first stage, Flutter is now a cross-platform development tool that allows the development of mobile and desktop apps without compounding changes to the codebase. This ensures that our platform renders well on a variety of devices and windows or screen sizes, without limiting our endeavors. Secondly, in comparison with other mobile frameworks, Flutter reduces the code development time by a wide margin. In a large and complex project such as ours, this is a crucial advantage that will lead us to a robust final product without the need for allocating umpteen resources. Finally, Flutter offers a variety of advanced tools that allow us to achieve a great user experience and interface design, which will help us achieve our goals.
 
-Et ``optimistic'' nulla dui purus, eleifend vel, consequat non, dictum porta, nulla. Duis ante mi, laoreet ut, commodo eleifend, cursus nec, lorem. Aenean eu est. Etiam imperdiet turpis. Praesent nec augue. Curabitur ligula quam, rutrum id, tempor sed, consequat ac, dui $G_j$, nec ligula et lorem consequat ullamcorper $p$ ut mauris eu mi mollis luctus $j$, porttitor ut, \Cref{unchoke_gain}, uctus posuere justo:
 
-\begin{description}
-  \item[$N_j$] Is the number of times peer $j$ has been optimistically unchoked.
-  \item[$n_j$] Among the $N_j$ unchokes, the number of times that peer $j$ responded with unchoke or supplied segments to peer $p$.
-  \item[$C_{r[j]}$] The cooperation ratio of peer $j$. If peer $j$ never supplied peer $p$, the information of $C_{r[j]}$ may not be available.
-  \item[$C_{r (max)}$] The maximum cooperation ratio of peer $p$’s neighbors, i.e., $C_{r (max)} = max(C_r)$.
-\end{description}
-
-\begin{equation}
-\label{unchoke_gain}
- G_j =
-  \begin{dcases}
-    \frac{n_j C_{r[j]}}{N_j} &\quad \text{if } n_j > 0\\
-    \frac{C_{r (max)}}{N_j + 1} &\quad \text{if } n_j = 0
-  \end{dcases}
-\end{equation}
-
-Cursus $C_{r (max)}$ conubia nostra, per inceptos hymenaeos $j$ gadipiscing mollis massa $N_j = 0$, unc ut dui eget nulla venenatis aliquet $G_j = C_{r (max)}$.
-
-Vestibulum accumsan eros nec magna. Vestibulum vitae dui. Vestibulum nec ligula et lorem consequat ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Phasellus eget nisl ut elit porta ullamcorper. Maecenas tincidunt velit quis orci. Sed in dui. Nullam ut mauris eu mi mollis luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Sed cursus cursus velit. Sed a massa. 
-
-Both \Cref{fig:tx_layer_4,fig:tx_layer_5} Phasellus eget nisl ut elit porta ``perfect'' tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
-
-\begin{figure}[h]
-%\centering
-       \subfigure[Adaptation System Test 4]{\label{fig:tx_layer_4}\includegraphics[width=0.5\textwidth]{./Images/tx_layer_4}}  
-   %    \centering 
-       \subfigure[Adaptation System Test 5]{\label{fig:tx_layer_5}\includegraphics[width=0.5\textwidth]{./Images/tx_layer_5}}   
-        \caption{Adaptation System Behavior Test}
-        \label{fig:fig:adapt_behave_2}
-\end{figure}
-
-Cras sed ante. Phasellus in massa. Curabitur dolor eros, gravida et, hendrerit ac, cursus non, massa. Aliquam lorem. In hac habitasse platea dictumst. Cras eu mauris. Quisque lacus. Donec ipsum. Nullam vitae sem at nunc pharetra ultricies. Vivamus elit eros, ullamcorper a, adipiscing sit amet, porttitor ut, nibh. Maecenas adipiscing mollis massa. Nunc ut dui eget nulla venenatis aliquet. Sed luctus posuere justo. Cras vehicula varius turpis. Vivamus eros metus, tristique sit amet, molestie dignissim, malesuada et, urna.
+\section{Functional Prototype}
