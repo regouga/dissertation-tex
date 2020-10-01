@@ -44,17 +44,19 @@ The three main layers that compose our system are the Presentation, the Business
 
 The Database Layer is responsible for managing and storing all the data that it is used in the Sterio system. It receives information entered by the application's users and answers accordingly with the requested information from the Business Layer. 
 
-The first development step of the platform was the creation of an entity-relationship model so that we can model the database and determine which entities we need based on the medium-fidelity prototype described in section ~\ref{sec:userenactments}. The representation of this model, shown in Figure CENAS, will help us visualize and conceptualize the system in the first stage, which will help reduce the development difficulty and discard preliminary oversights.
+The first development step of the platform was the creation of an entity-relationship model so that we can model the database and determine which entities we need based on the medium-fidelity prototype described in section ~\ref{sec:userenactments}. The representation of this model, shown in Figure ~\ref{fig:eadiagram}, will help us visualize and conceptualize the system in the first stage, which will help reduce the development difficulty and discard preliminary oversights.
 
-The implementation of the database was conducted using Google's Cloud Firestore, which is a NoSQL, document-oriented database. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{./Images/ea.png}
+\caption{Entity – Relationship Model of the Sterio system}
+\label{fig:eadiagram}
+\end{figure}
 
 
+The implementation of the database was conducted using Google's Cloud Firestore, which is a NoSQL, document-oriented database. Each document contains a set of key-value pairs, being optimized for storing sizable collections of small documents. It is a serverless document database that effortlessly scales to meet any demand, with no maintenance required, which accelerates the development of native cloud applications and lets developers focus their efforts on the most foreground layers of a system.
 
-Each document contains a set of key-value pairs. Cloud Firestore is optimized for storing large collections of small documents.
-
-, which is an open-source document database, that was de- signed to be robust, flexible and scalable [25]. It uses an ordered set of keys with associated values that in JavaScript are represented as objects. We decided to use this type of database since it is an open-source project that allows scalability in the future, and it uses objects that allows the storing of all kinds of data quickly.
-
-It should also be noted that the system is prepared to be easily customised and to receive new values if the project has any changes in the way we approach some of its points.
+We chose to use Cloud Firestore due to its lean learning curve, ease-of-use, good performance, reliability, high scalability, and deep integration with other Google services that will also be used in the development of the platform. Furthermore, by using this technology, the system is prepared to be easily customized and to receive new data if the project has any changes in the way we approach some of its points.
 
 
 \subsection{Business Layer}
