@@ -36,9 +36,9 @@ In the end, a general-purpose platform will emerge that creates a novel listenin
 
 \section{Architecture}
 
-The Sterio platform was developed following a layered architecture which not only supports the incremental development of systems but provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected. ~\cite{Aarsten} Furthermore, every layer of the Sterio system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
+The Sterio platform was developed following a layered architecture, which not only supports the incremental development of systems, but also provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected. ~\cite{Aarsten} Every layer of the Sterio system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
 
-The three main layers that compose our system are the Presentation, the Business, and the Database Layer, represented in Figure ~\ref{fig:arc}. In the following subsections, we explain in greater detail the role of each layer, as well as the reasoning and advantages of the used frameworks and technologies. 
+The three main layers that compose our system are the Presentation, Business, and Database Layer, represented in Figure ~\ref{fig:arc}. In the following subsections, we explain in greater detail the role of each layer, as well as the reasoning and advantages of the used frameworks and technologies. 
 
 \begin{figure}[h]
 \centering
@@ -49,9 +49,9 @@ The three main layers that compose our system are the Presentation, the Business
 
 \subsection{Database Layer}
 
-The Database Layer is responsible for managing and storing all the data that it is used in the Sterio system. It receives information entered by the application's users and answers accordingly with the requested information from the Business Layer. ~\cite{Aarsten}
+The Database Layer is responsible for managing and storing all the data that it is used in the system. It receives information entered by the application's users and answers accordingly with the requested information from the Business Layer. ~\cite{Aarsten}
 
-The first development step of the platform was the creation of an entity-relationship model so that we can model the database and determine which entities we need based on the medium-fidelity prototype described in section ~\ref{sec:userenactments}. The representation of this model, shown in Figure ~\ref{fig:eadiagram}, will help us visualize and conceptualize the system in the first stage, which will help reduce the development difficulty and discard preliminary oversights.
+The first development step of the platform was the creation of an entity-relationship model so that we can model the database and determine which entities we need based on the medium-fidelity prototype described in section ~\ref{sec:userenactments}. The representation of this model, shown in Figure ~\ref{fig:eadiagram}, will help us visualize and conceptualize the system in the first stage, which will soothe the development difficulty and discard preliminary oversights.
 
 \begin{figure}[h]
 \centering
@@ -61,7 +61,7 @@ The first development step of the platform was the creation of an entity-relatio
 \end{figure}
 
 
-The implementation of the database was conducted using Google's Cloud Firestore, which is a NoSQL, document-oriented database. Being a NoSQL database, it provides several advantages, such as a non-relational and schema-less data model, low latency and high performance, highly scalable, and object-oriented programming that is easy and flexible to use. ~\cite{Stonebraker2010} Each document contains a set of key-value pairs, being optimized for storing sizable collections of small documents. It is a serverless document database that effortlessly scales to meet any demand, with no maintenance required, which accelerates the development of native cloud applications and lets developers focus their efforts on the most foreground layers of a system.
+The implementation of the database was conducted using Google's Cloud Firestore~\footnote{Detailed information available on the platform's \href{https://firebase.google.com/products/firestore}{official website}.}, which is a NoSQL, document-oriented database. Being a NoSQL database, it provides several advantages, such as a non-relational and schema-less data model, low latency and high performance, highly scalable, and object-oriented programming that is easy and flexible to use. ~\cite{Stonebraker2010} Each document contains a set of key-value pairs, being optimized for storing sizable collections of small documents. It is a serverless document database that effortlessly scales to meet any demand, with no maintenance required, which accelerates the development of native cloud applications and lets developers focus their efforts on the most foreground layers of a system.
 
 We chose to use Cloud Firestore due to its lean learning curve, ease-of-use, good performance, reliability, high scalability, and deep integration with other Google services that will also be used in the development of the platform. Furthermore, by using this technology, the system is prepared to be easily customized and to receive new data if the project has any changes in the way we approach some of its points.
 
@@ -70,14 +70,14 @@ We chose to use Cloud Firestore due to its lean learning curve, ease-of-use, goo
 
 The Business Layer is responsible to encode the real-world business rules that determine how data can be created, stored, and changed. It contrasts with the remainder of the software that might be concerned with lower-level details of managing a database or displaying the user interface, system infrastructure, or generally connecting various parts of the program. ~\cite{Aarsten}
 
-For the Sterio platform, we chose to use Google's Firebase business logic features. Firebase is a mobile backend as a service (MBaaS), which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and APIs exposed by back end applications while also providing features such as user management, push notifications, and integration with social networking services.
+For the Sterio platform, we chose to use Google's Firebase~\footnote{For more information on Google's Firebase and Cloud Platform services, visit its \href{https://firebase.google.com/}{official website}.} business logic features. Firebase is a \ac{MBaaS}, which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and \acp{API} exposed by back end applications while also providing features such as user management, push notifications, and integration with social networking services.
 
-Firebase provides several pre-developed, robust, and reliable SDKs — such as authentication, hosting, storage, and app indexing — that helped us steer the focus of our development efforts to the design and conceiving of the user experience and interface. As with Cloud Firestore, it integrates thoroughly with other Google services, while also allowing the configuration of third-party APIs that will be used in the context of our project.
+Firebase provides several pre-developed, robust, and reliable \acp{SDK} — such as authentication, hosting, storage, and app indexing — that helped us steer the focus of our development efforts to the design and conceiving of the user experience and interface. As with Cloud Firestore, it integrates thoroughly with other Google services, while also allowing the configuration of third-party \acp{API} that will be used in the context of our project.
 
 
 \subsection{Presentation Layer}
 
-The third layer is the Presentation Layer, which is responsible for the interaction between the user and the system. ~\cite{Aarsten} This layer will interact with the business layer through calls to the Firebase service.
+The third and final layer of the system is the Presentation Layer, which is responsible for the interaction between the user and the system. ~\cite{Aarsten} This layer will interact with the business layer through calls to the Firebase service.
 
 Based on the preliminary user research presented in section ~\ref{chap:userresearch}, and corroborating with the data shown in Figure ~\ref{chart:devices}, most users listen to music streaming services on their smartphone. Furthermore, as we want our platform to be easily accessible on the go, we focused our efforts in analyzing the most popular mobile development frameworks to develop our platform on.
 
@@ -95,9 +95,9 @@ Based on the preliminary user research presented in section ~\ref{chap:userresea
 \end{figure}
 
 
-We chose to develop the Sterio platform using Flutter, which is an UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Flutter apps are written in the Dart programming language and make use of many of the language's more advanced features. ~\cite{Payne2019}
+We chose to develop the Sterio platform using Flutter~\footnote{To learn more about the Flutter framework, consult the \href{https://flutter.dev/}{official website}.}, which is an \ac{UI} toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Flutter apps are written in the Dart~\footnote{For more information on the Dart programming language, visit its \href{https://dart.dev/}{official website}.} programming language and make use of many of the language's more advanced features. ~\cite{Payne2019}
 
-In the context of our project, Flutter has some key advantages over other technologies. To start, although it has been built as a mobile-first toolkit in the first stage, Flutter is now a cross-platform development tool that allows the development of mobile and desktop apps without compounding changes to the codebase. This ensures that our platform renders well on a variety of devices and windows or screen sizes, without limiting our endeavors. Secondly, in comparison with other mobile frameworks, Flutter reduces the code development time by a wide margin. In a large and complex project such as ours, this is a crucial advantage that will lead us to a robust final product without the need for allocating umpteen resources. Finally, Flutter offers a variety of advanced tools that allow us to achieve a great user experience and interface design, which will help us achieve our goals. ~\cite{Payne2019}
+In the context of our project, Flutter has some key advantages over other technologies. To start, although it has been built as a mobile-first toolkit in the first stage, Flutter is now a cross-platform development tool that allows the development of mobile (on the Android and iOS operating systems) and desktop apps without compounding changes to the codebase. This ensures that our platform renders well on a variety of devices and windows or screen sizes, without limiting our endeavors. ~\cite{H.GillbertMiller2011} Secondly, in comparison with other mobile frameworks, Flutter reduces the code development time by a wide margin. In a large and complex project such as ours, this is a crucial advantage that will lead us to a robust final product without the need for allocating umpteen resources. Finally, Flutter offers a variety of advanced tools that allow us to achieve a great user experience and interface design, which will help us achieve our goals. ~\cite{Payne2019}
 
 
 \section{Functional Prototype}
