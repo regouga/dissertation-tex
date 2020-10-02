@@ -109,6 +109,8 @@ In the following subsections, we describe in detail all functionalities, compone
 
 \subsection{Login, Signup, and Authentication}
 
+The first interaction the user has with the Sterio platform is the login / signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a sign up method, the screen shown in ~\ref{fig:login2} is presented.
+
 \begin{figure}[htbp]
 	\centering
 	\subfigure[Login / Signup screen]{\label{fig:login1}
@@ -118,21 +120,26 @@ In the following subsections, we describe in detail all functionalities, compone
 	\subfigure[Spotify authentication]{\label{fig:auth}
 	\frame{\includegraphics[width=0.29\textwidth]{./Images/screenshots/auth.png}}} \qquad
 	\caption{Login, Signup, and Spotify authentication screens}
-	\label{fig:mfp1}
+	\label{fig:lss}
 \end{figure}
 
+As the system integrates with a Spotify Premium account, it is also necessary that the user authenticates with the music streaming service, so that we can take advantage of its ~\ac{API}. To do so, an in-app browser window, shown in Figure ~\ref{fig:auth}, is also presented to the user. This is a one-time step, as the system stores the necessary ~\ac{API} parameters in the database and automatically logs in the user in future usages.
+
 \subsection{'Home' and 'Search' Screens}
+
+After logging in, the user is prompted with the 'Home' screen, shown in Figure ~\ref{fig:homes}, which is the first and most foregrounding screen of the platform. In this screen, the user can quickly play a station based on a recent activity, friends activity, top charts, or other relevant information tailored to the user's taste and usability history. In this screen, the user can also change the settings and preferences of the app, as well as of the signed-in account. Finally, the user can also enter the "Car Mode" of the system, which transforms the ~\ac{UI} in a stripped-down, non-distracting, and easy way for the user to control playback while driving.
 
 \begin{figure}[htbp]
 	\centering
 	\subfigure['Home' screen]{\label{fig:homes}
 	\frame{\includegraphics[width=0.29\textwidth]{./Images/screenshots/home.png}}} \qquad
-	\subfigure['Search' screen]{\label{fig:searchs}
+	\subfigure['Search' screen]{\label{fig:searchs1}
 	\frame{\includegraphics[width=0.29\textwidth]{./Images/screenshots/search.png}}} \qquad
 	\caption{'Home' and 'Search' screens}
 	\label{fig:mfp1}
 \end{figure}
 
+In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search for a specific station, content, or even other users to follow and check their profiles. In the same screen some suggestions are also shown, based on the most searched items and trending stations a given location.
 
 
 \subsection{'Social' Screen}
