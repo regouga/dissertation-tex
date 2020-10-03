@@ -108,6 +108,7 @@ Based on the medium-fidelity prototype presented in Section ~\ref{sec:userenactm
 In the following subsections, we describe in detail all functionalities, components, screens, implementations, and technical facets of the Sterio system, as well as the design implications and limitations faced during the development of the prototype. %We begin by examining the four main screens of the application — 'Home', 'Search', 'Social', and 'My Stations' — followed by an analysis of the technical reasoning behind the creation, playback, and sharing of stations. 
 
 \subsection{Login, Signup, and Authentication}
+\label{subsec:lsa}
 
 The first interaction the user has with the Sterio platform is the login / signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a sign up method, the screen shown in ~\ref{fig:login2} is presented.
 
@@ -173,33 +174,13 @@ Each station is represented by a 'card' that displays its basic information — 
 
 All the station information is stored and loaded from the database on-demand, thus minimizing cache and offline efforts. Nevertheless, in case the user doesn't have a connection to the internet, it is possible to download and locally store a given station.
 
-\begin{minipage}[c]{0.95\textwidth}
-\begin{center}
-\begin{spacing}{0.5}
-\begin{lstlisting}[frame=lines,style=XML,caption={Fecthing and displaying the stations of a given user},label=mpd]
-Expanded(
-	child: GridView.builder(
-		gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-			crossAxisCount: 2,
-			crossAxisSpacing: 12.0,
-			mainAxisSpacing: 12.0,
-			childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.4),
-		),
-		itemCount: snapshot.data.documents.length,
-		itemBuilder: (context, index) {
-			DocumentSnapshot ds = snapshot.data.documents[index];
-			final stationAuthor = ds.data['author'];
-			if (stationAuthor != loggedInUser) {}
-			Station createdStation = Station(ds, context);
-			_myStations.putIfAbsent(
-				createdStation.getName(), () => createdStation);
-            return createdStation.gridIcon();
-         }),
-),
-\end{lstlisting}
-\end{spacing}
-\end{center}
-\end{minipage}
+\begin{figure}[h]
+\centering
+\frame{\includegraphics[width=0.8\textwidth]{./Images/code/fl.png}}
+\caption{Fecthing and displaying the stations of a given user}
+\label{fig:mys}
+\end{figure}
+
 
 
 \subsection{Creating a New Station}
@@ -223,8 +204,6 @@ The second and final step of the creation process of a new station is the select
 
 \subsection{Configuring and Customizing a Station}
 
-
-
 \begin{figure}[htbp]
 	\centering
 	\subfigure[Blocks screen]{\label{fig:s1}
@@ -236,6 +215,14 @@ The second and final step of the creation process of a new station is the select
 \end{figure}
 
 
+Each station has its own dedicated page, where the user can explore and customize all aspects and features of it. This screen is divided in three sub-screens that fill the latter half of the canvas — the 'blocks', 'schedule' and 'social' screen.
+
+The 'blocks' screen showcases all the added blocks of the station. In this sub-screen, it is possible to configure, add, or remove individual blocks. The 'schedule' screen presents visually the order in which the content inserted from each block will be played. The user can fully customize the order and also remove individual elements. Finally, in the 'search' screen — which is only displayed if the creator of the station allowed its sharing with the community — users can see the profiles that follow the station, as well to accept or decline any changes that other users have suggested.
+
+On the first half of the screen, users can examine the station's name, description, artwork cover, duration, and creator (or creators). There, users can also start playing the station, enter its settings screen (where it is possible to adjust some configurations, such as the used text-to-speech voice), or delete the given station.
+
+In the following subsections, we explain in greater detail the logical and technical implementations of three of the available station's blocks — Spotify, Podcasts, Weather, and News. 
+
 
 \subsubsection{Spotify and Podcasts}
 
@@ -246,8 +233,26 @@ The second and final step of the creation process of a new station is the select
 	\subfigure[Playlists selection screen]{\label{fig:spotify2}
 	\frame{\includegraphics[width=0.29\textwidth]{./Images/screenshots/playlists.png}}} \qquad
 	\caption{Spotify block configuration screens}
-	\label{fig:mfp1}
+	\label{fig:spp1}
 \end{figure}
+
+The Spotify block serves as the main connection to the music streaming service. From there, users can explore their music library and select their desired content (that could be represented in the form of a single song, artist, album, or even full playlists). To make it easier for users to add content, the recently played songs from Spotify are also displayed. Users can select an unlimited number of items, which are added to the station schedule automatically and in the order of their choice.
+
+As mentioned in Section ~\ref{chap:relatedwork}, Spotify also provides access to a growing library of podcasts, which the user can also add to their stations. Nevertheless, although the provider of both music and podcasts is the mentioned music streaming service, a separate block dedicated to Podcasts was created.
+
+Each item (song, album, playlist, artist, or podcast) is represented by a unique \ac{URI}, which are obtained with resource to the Spotify Web \ac{API} ~\footnote{For more information on the developlemt resources provided by Spotify, visit the Spotify Developers website.}. The credentials entered by the user (described in Section ~\ref{subsec:lsa}) are used to authenticate and make an API call requesting the desired information. A response JSON file is sent to the backend, where it is processed and, afterward, the information is presented to the user, where it is possible for them to add the desired content the station.
+
+\begin{figure}[h]
+\centering
+\frame{\includegraphics[width=0.8\textwidth]{./Images/code/jsr.png}}
+\caption{Response JSON file of a call to the playlist library of Spotify's Web API}
+\label{fig:mys}
+\end{figure}
+
+
+The Spotify Web \ac{API} provides a number of useful features in the context of our project. For instance, it is possible to search the entire Spotify catalogue for a specific element, get curated playlists created by Spotify’s editorial team, based on popularity, mood, international events, and genres, or even present the best content recommendations based on a variety of terms such as market, seeds (artists, genres, tracks), ranged audio features (danceability, valence, tempo, liveness, etc) and popularity. In the end, this creates a very integrated and personalized experience for the platform's users.
+
+The selected \acp{URI} are linked to the matching station and stored in the database, so that when a user plays a station, Spotify can gather this information and use to play an individual item. This algorithm — that uses Spotify's Playback \ac{API}, rather than the Web \ac{API} — is further explained in detail in Section ~\ref{subs:playing}.
 
 \subsubsection{Weather}
 
