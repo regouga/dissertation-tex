@@ -105,7 +105,7 @@ In the context of our project, Flutter has some key advantages over other techno
 
 Based on the medium-fidelity prototype presented in Section ~\ref{sec:userenactments}, the last — and most important — step of the development cycle was to construct a functional prototype with a fully-working set of features. This prototype should resemble as close as possible to the final representation of the system. 
 
-In the following subsections, we describe in detail all functionalities, components, screens, implementations, and technical facets of the Sterio system, as well as the design implications and limitations faced during the development of the prototype.
+In the following subsections, we describe in detail all functionalities, components, screens, implementations, and technical facets of the Sterio system, as well as the design implications and limitations faced during the development of the prototype. %We begin by examining the four main screens of the application — 'Home', 'Search', 'Social', and 'My Stations' — followed by an analysis of the technical reasoning behind the creation, playback, and sharing of stations. 
 
 \subsection{Login, Signup, and Authentication}
 
@@ -139,10 +139,12 @@ After logging in, the user is prompted with the 'Home' screen, shown in Figure ~
 	\label{fig:mfp1}
 \end{figure}
 
-In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search for a specific station, content, or even other users to follow and check their profiles. In the same screen some suggestions are also shown, based on the most searched items and trending stations a given location.
+In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search for a specific station, content, or even other users to follow and check their profiles. In the same screen, some listening suggestions are also shown, based on the most searched items and trending stations in a given location.
 
 
 \subsection{'Social' Screen}
+
+The 'Social' screen aggregates all the social activity of the profiles that a given user follows. From there, users can explore what stations their followers are currently listening to, as well as to listen along to such stations (mimicking the experience of a traditional terrestrial radio station). In Section ~\ref{subs:playing} we explain in greater detail the technical background of this functionality.
 
 \begin{figure}[htbp]
 	\centering
@@ -154,7 +156,11 @@ In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search
 	\label{fig:mfp1}
 \end{figure}
 
+From the same screen, users can also delve into the shared stations of their friends and family, and get recommendations of profiles to follow based on their taste and friends' circle. Coinciding with a news feed of a traditional social network, users can also share and interact with shared media posts, creating a very integrated and cohesive social experience between the users of the platform.
+
 \subsection{'My Stations' Screen}
+
+The last of the four main screens of the platform is the 'My Stations' screen, shown in Figure ~\ref{fig:mys}, where the user can find their own created stations or saved stations created by other users of the platform. It acts as a 'library' of saved stations, making it easy for users to find their desired content. On the same screen, users can press the '+' red button and start the process of creating a new station, which will be automatically added to their library.
 
 \begin{figure}[h]
 \centering
@@ -162,6 +168,38 @@ In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search
 \caption{'My Stations' screen}
 \label{fig:mys}
 \end{figure}
+
+Each station is represented by a 'card' that displays its basic information — name, blocks, and artwork/cover. This configuration allows the user to have a glimpse of what are the contents of a given station without even entering the station's page. Furthermore, a convenient 'play' button is exposed so that users can effortlessly start playing a given station. This design is carried out across the platform's screens, creating a broad, cohesive, and consistent user experience.
+
+All the station information is stored and loaded from the database on-demand, thus minimizing cache and offline efforts. Nevertheless, in case the user doesn't have a connection to the internet, it is possible to download and locally store a given station.
+
+\begin{minipage}[c]{0.95\textwidth}
+\begin{center}
+\begin{spacing}{0.5}
+\begin{lstlisting}[frame=lines,style=XML,caption={Fecthing and displaying the stations of a given user},label=mpd]
+Expanded(
+	child: GridView.builder(
+		gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+			crossAxisCount: 2,
+			crossAxisSpacing: 12.0,
+			mainAxisSpacing: 12.0,
+			childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.4),
+		),
+		itemCount: snapshot.data.documents.length,
+		itemBuilder: (context, index) {
+			DocumentSnapshot ds = snapshot.data.documents[index];
+			final stationAuthor = ds.data['author'];
+			if (stationAuthor != loggedInUser) {}
+			Station createdStation = Station(ds, context);
+			_myStations.putIfAbsent(
+				createdStation.getName(), () => createdStation);
+            return createdStation.gridIcon();
+         }),
+),
+\end{lstlisting}
+\end{spacing}
+\end{center}
+\end{minipage}
 
 
 \subsection{Creating a New Station}
@@ -236,6 +274,7 @@ In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search
 
 
 \subsection{Playing a Station}
+~\label{subs:playing}
 
 \begin{figure}[htbp]
 	\centering
