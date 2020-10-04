@@ -185,8 +185,6 @@ All the station information is stored and loaded from the database on-demand, th
 
 \subsection{Creating a New Station}
 
-From the 'My Stations' screen, users can create their own custom station. This is a simple two-step process  — first, the users are requested to enter the name of the station, a brief description, a cover artwork (which can be selected from the local photo gallery, from a web search, or even from taking a picture in real time), and a sharing option. The latter determines if the station will be kept private to the user (other users can't see the station contents nor play it), or if it is shared with the community of the platform's users. The screen where the user is prompted to enter this information is shown in Figure ~\ref{fig:ns1}.
-
 \begin{figure}[htbp]
 	\centering
 	\subfigure[Step 1 (stations' details)]{\label{fig:ns1}
@@ -199,8 +197,9 @@ From the 'My Stations' screen, users can create their own custom station. This i
 	\label{fig:mfp1}
 \end{figure}
 
-The second and final step of the creation process of a new station is the selection of 'blocks'. Each 'block' represents a service or source of information that can be added to the station playback. A simple screen, represented in Figure ~\ref{fig:ns2}, is shown to the user, so that they can select the desired blocks in a simple and intuitive way. After the user is elated with their choices, the created station information is stored in the database, and if such process is successful, a confirmation screen  (represented in Figure ~\ref{fig:ns3}) is shown to the user. Finally, the user is redirected to the 'My Stations' screen (Figure ~\ref{fig:mys}), where the newly created station is now listed.
+From the 'My Stations' screen, users can create their own custom station. This is a simple two-step process  — first, the users are requested to enter the name of the station, a brief description, a cover artwork (which can be selected from the local photo gallery, from a web search, or even from taking a picture in real time), and a sharing option. The latter determines if the station will be kept private to the user (other users can't see the station contents nor play it), or if it is shared with the community of the platform's users. The screen where the user is prompted to enter this information is shown in Figure ~\ref{fig:ns1}.
 
+The second and final step of the creation process of a new station is the selection of 'blocks'. Each 'block' represents a service or source of information that can be added to the station playback. A simple screen, represented in Figure ~\ref{fig:ns2}, is shown to the user, so that they can select the desired blocks in a simple and intuitive way. After the user is elated with their choices, the created station information is stored in the database, and if such process is successful, a confirmation screen  (represented in Figure ~\ref{fig:ns3}) is shown to the user. Finally, the user is redirected to the 'My Stations' screen (Figure ~\ref{fig:mys}), where the newly created station is now listed.
 
 \subsection{Configuring and Customizing a Station}
 
@@ -225,7 +224,10 @@ In the following subsections, we explain in greater detail the logical and techn
 
 
 
+
+\newpage
 \subsubsection{Spotify and Podcasts}
+\label{sub:spotify}
 
 The Spotify block serves as the main connection to the music streaming service. From there, users can explore their music library and select their desired content (that could be represented in the form of a single song, artist, album, or even full playlists). To make it easier for users to add content, the recently played songs from Spotify are also displayed. Users can select an unlimited number of items, which are added to the station schedule automatically and in the order of their choice.
 
@@ -254,6 +256,7 @@ Each item (song, album, playlist, artist, or podcast) is represented by a unique
 The Spotify Web \ac{API} provides a number of useful features in the context of our project. For instance, it is possible to search the entire Spotify catalogue for a specific element, get curated playlists created by Spotify’s editorial team, based on popularity, mood, international events, and genres, or even present the best content recommendations based on a variety of terms such as market, seeds (artists, genres, tracks), ranged audio features (danceability, valence, tempo, liveness, etc) and popularity. In the end, this creates a very integrated and personalized experience for the platform's users.
 
 The selected \acp{URI} are linked to the matching station and stored in the database, so that when a user plays a station, Spotify can gather this information and use to play an individual item. This algorithm — that uses Spotify's Playback \ac{API}, rather than the Web \ac{API} — is further explained in detail in Section ~\ref{subs:playing}.
+\newpage
 
 \subsubsection{Weather}
 
@@ -267,14 +270,16 @@ The selected \acp{URI} are linked to the matching station and stored in the data
 	\label{fig:weather}
 \end{figure}
 
-The Weather block provides real-time and updated climate information to a given station. Users can choose to listen to the current weather information, hourly forecast for the current day, and/or forecast for the following 3 days. It is also possible to customize the periodicity of when this information is played in the station, which will change its matching schedule. Finally, users can also set the location from which they want to receive weather information — by default, this is attributed to the user's current location.
+The Weather block provides real-time and updated climate information to a given station. Users can choose to listen to the current weather information, hourly forecast for the current day, and/or forecast for the following 3 days. It is also possible to customize the periodicity of when this information is played in the station, which will change its matching schedule. Finally, users can also set the location from which they want to receive weather information — by default, this is attributed to the user's current location. These settings set by the user are stored in the database.
 
-To gather meteorology information, we rely on the OpenWeather Map \ac{API} ~\footnote{Weather API}, which provides the required information in a reliable and effortless way. A 'get' request is made to the \ac{API}, which responds with a JSON file containing all the necessary information.
+To gather meteorology information, we rely on the OpenWeather Map \ac{API} ~\footnote{Weather API}, which provides the required information in a reliable and effortless way. A 'get' request is made to the \ac{API}, which responds with a JSON file containing all the necessary information. 
 
-
+\newpage
 \subsubsection{News}
 
-The Weather block provides real-time and updated climate information to a given station. Users can choose to listen to the current weather information, hourly forecast for the current day, and/or forecast for the following 3 days. It is also possible to customize the periodicity of when this information is played in the station, which will change its matching schedule. Finally, users can also set the location from which they want to receive weather information — by default, this is attributed to the user's current location.
+The News block provides a digest of the top headlines to a given station. Users can select the categories of news they wish to listen, the number of headl ines, and the periodicity of the digest. It is also possible to select a specific keyword to fetch news from (e.g. "COVID-19"), or even select the sources from where the headlines are retrieved. These settings set by the user are also stored in the database.
+
+We used the News \ac{API} to fetch this information, which delivers breaking news headlines, and allows the search for articles from news sources and blogs all over the web~\footnote{Text}. Just like on the Weather block, a 'get' request is made to the \ac{API}, which responds accordingly with a JSON file containing all the requested information by the user.
 
 \begin{figure}[htbp]
 	\centering
@@ -287,8 +292,26 @@ The Weather block provides real-time and updated climate information to a given 
 \end{figure}
 
 
+When the News block is played in the station, each headline is synthesized and announced by the text-to-speech software, just like any other block containing readable information. To each headline, a small block of text is added to provide more context on the news. Then, an audio separator is played, so that the user knows when the announcement of the next headline begun.
+
+The headlines are obtained based on the country and language selected by the user in the signup process. Nevertheless, the user has full control on this matter, and can choose to obtain news headlines from a variety of search terms, topics, countries, languages, and categories.
+
+
+
+\begin{figure}[h]
+\centering
+\frame{\includegraphics[width=0.8\textwidth]{./Images/code/news.png}}
+\caption{Response JSON file of a call to the News API}
+\label{fig:mys}
+\end{figure}
+
+\newpage
 \subsection{Playing a Station}
 ~\label{subs:playing}
+
+When the station is fully customized to the user's taste, it is then possible to play it. To do so, the user simply needs to tap the 'play' button, located either at the station information screen or at the preview card displayed on the 'My Stations' screen. 
+
+After tapping the 'Play' button, a modal, represented in Figure ~\ref{fig:play1}, is shown to the user, which acts as a 'loading' screen while the backend of the platform performs the necessary tasks to allow the playing of the station. To give a radio-like exeprience, it is played an audio track that mimicks the sounds of tuning into a traditional terrestrial radio station, which automatically stops when all loading processes are complete. 
 
 \begin{figure}[htbp]
 	\centering
@@ -300,6 +323,8 @@ The Weather block provides real-time and updated climate information to a given 
 	\label{fig:mfp1}
 \end{figure}
 
+Finally, the station starts playing, and a 'now playing' bottom controller bar, shown in Figure ~\ref{fig:play2}, is displayed. This bar provides quick and easy information to the user regarding what's currently playing, as well as a play/pause button to quickly stop playback when needed. If the user taps this bar, the 'Now Playing' screen, showcased in Figure ~\ref{fig:npslol}, is shown, which provides more playback controls and information regarding the currently playing station, including the content that will be played next in the schedule.
+
 \begin{figure}[htbp]
 	\centering
 	\subfigure[Now playing screen]{\label{fig:np1}
@@ -307,7 +332,36 @@ The Weather block provides real-time and updated climate information to a given 
 	\subfigure[Up next content]{\label{fig:np2}
 	\frame{\includegraphics[width=0.29\textwidth]{./Images/screenshots/np2.png}}} \qquad
 	\caption{"Now Playing" screen}
-	\label{fig:mfp1}
+	\label{fig:npslol}
 \end{figure}
 
+
+To play the station, a 5-step algorithm is performed before entering the main playing loop. This algorithm is represented in Figure ~\ref{fig:alg}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{./Images/code/alg.png}
+\caption{Algorithm for playing a given station}
+\label{fig:alg}
+\end{figure}
+
+After pressing the play button, the first step of the algorithm is to check if the user has changed the configurations of any of the selected blocks, or if the schedule playing order has been modified. If it is the case, the algorithm updates and processes the schedule so that it is performed on the most recent configurations of the station.
+
+Following this process, the platform will connect to the Spotify Controller, which is a dedicated component of the code that connects to the Spotify Playback \ac{API}. As mentioned in Section ~\ref{sub:spotify}, this is a different \ac{API} library from the one used to select the desired content from the music streaming service.
+
+To control a user's Spotify playback, the \ac{API} requires that the Spotify application is installed on the user's device and that it is opened in the background so that it can receive requests. This is a limitation set by the Spotify \ac{API} that we can't bypass. After the connection to the Spotify Controller is successful, then all the selected content (\acp{URI}) is added to the user's Spotify listening queue.
+
+After the Spotify connection is handled, all the information from the remaining station's blocks is fetched, so that it is as updated as possible. The responses are then processed into a natural spoken text, which is then sent as a GET request to the Google Cloud Text-to-Speech API. The API responds with a set of encoded information containing the synthesized sound bytes, which are locally converted into audio files. These audio files are then stored in the cache of the platform which, after playing the station, are discarted in order to save storage space.
+
+Then, if Spotify successfully connected to the platform, and if all the requested information from the blocks is synthesized into text-to-speech audio files, the last step before entering the main playing loop is to set the now playing station as the current 'state' of the platform. This allows the access and control of the currently playing station thorughout the interface, as shown in Figures ~\ref{fig:play2} and ~\ref{fig:npslol}.
+
+Finally, the station enters its main playing loop. Every station begins with a radio transition jingle or audio effect that serves as a separator between content, micking a traditional terrestrial radio station and granting a more cohesive and integrated experience to the user. This transition is naturally between music tracks or other content to allow continued attention in the periphery.
+
+Following this introductory audio effect, the algorithim checks wether the next item of the schedule is a Spotify \ac{URI} or not. If it is, it plays it by simply calling a 'play' function provided by the Spotify controller, and sets the now playing state of the application. Then, the algorithim checks if the current Spotify content has finished playing, and, if so, it plays an audio transition and another iteration of the loop is processed.
+
+The most diffcult challenge we faced while coding this algorithim was the process of the determining wether the Spotify coontet has finished playing or not. The Spotify Playback \ac{API} does not provide an easy way of accessing this information, allowing only the access of a limited set of playback information, such as the current position of a content's playback. In order to bypass this limitation, we crafted a sub-algorithim that checks second by second this information, and when the current position of a content's playback matches the total lenght of such content, an alert is sent to indicate that the content has finished playing. This approach adds complexity in terms of performance and resource usage, but it was the only way we found to bypass this limitation set by the Spotify Playback \ac{API}.
+
+Conversly, if the next item on the schedule is not a Spotify \ac{URI}, then the algorithim picks up the matching synthesized audio file and plays it. At the same time, a maching background music is added while the text-to-speech audio file is played, so that the user creates more empathy while listening to the information. The now playing state of the application is also set, and if the algorithim checks if the current content has finished playing, it plays an audio transition and another iteration of the loop is processed. As we're processing local files, we didn't face the same issues in determine if the currently playing content has finished playing, unlike we had with Spotify playback.
+
+When the station finishes playing its matching schedule, the playback is stopped and all the local cached files are deleted. Nevertheless, the user can choose to loop or repeat the station, allowing a non-stop playback of content.
 
