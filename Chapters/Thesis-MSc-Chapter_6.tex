@@ -86,5 +86,119 @@ The execution of each of the four tasks followed the same protocol, described pr
 % #############################################################################
 \section{Results}
 
+In this section, we present the results obtained from the execution of the test sessions. We start by presenting the users’ characterization (sub-section 5.3.1), followed by a statistical analysis we made to compare results between tasks (sub-section 5.3.2). Then, we examine and review all the gathered qualitative data (sub-section 5.3.3). Finally, in sub-section 5.3.4, we present some conclusions regarding suggestions gathered and notes taken by observation during the test sessions with the users.
+
+\subsection{Users’ Characterization}
+
+A total of 26 users participated in the test sessions. From those, 15 were of ages ranging from 18 to 30, while the remaining 11 refer to ages 31 to 60. A majority of the participants were female (16 users). Aproximmatelly 54\% were employed, while the remaining 46\% were students. None of these users had a visual or hearing condition that cloud affect their performance on the testing sessions.
+
+As for audio media consuming habits, 76.5\% of the users use a music streaming service on a daily basis, with only 5.9\% using them 'rarely'. With 81\%, Spotify is the most used streaming service, followed by YouTube which counts for 5.9\%. As for traditional terrestrial radio stations, 41.2\% of the users state that they listen to it on a weekly basis, while 17.6\% listen to them daily and just 5.9\% not listening to them at all.
+
+\subsection{Statistical Analysis}
+
+In this sub-section, we present the results of the statistical analysis performed over the test results. This analysis was conducted with the goal of understanding, in raw metrics, the usability of our system. We evaluated success, time taken to answer, and difficulty evaluated by the users.
+
+\subsubsection{Duration and Number of Errors}
+
+Table ~\ref{tab:resultstimetourist} presents the duration it took each user to perform each task, as well as the number of errors. In the same table, some statistics about those values are also presented, which show the values referring to the minimum, maximum, and average time spent executing each task, the value of the standard deviation, and the confidence interval with the confidence level of 95\%.
+
+We decided not to count nor analyze the time the users took to perform tasks 3 and 4. These tasks involved playing a station, in which the total time of listening would depend on a variety of factors. As such, this wouldn't be an indicative value to study and take into consideration in our analysis.
+
+
+\setlength{\tabcolsep}{0.5em} % for the horizontal padding
+{\renewcommand{\arraystretch}{1.2}% for the vertical padding
+\begin{table}
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{0pt}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Statistical Analysis — Duration and Number of Errors}
+\label{tab:resultstimetourist}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\hspace{0pt}}p{0.357\linewidth}|>{\centering\hspace{0pt}}p{0.136\linewidth}|>{\centering\hspace{0pt}}p{0.136\linewidth}|>{\centering\hspace{0pt}}p{0.071\linewidth}|>{\centering\hspace{0pt}}p{0.071\linewidth}|>{\centering\hspace{0pt}}p{0.071\linewidth}|>{\centering\arraybackslash\hspace{0pt}}p{0.071\linewidth}} 
+\hline
+\multicolumn{1}{>{\centering\hspace{0pt}}p{0.357\linewidth}|}{} & \multicolumn{2}{>{\centering\hspace{0pt}}p{0.272\linewidth}|}{\textbf{Duration (seconds)} } & \multicolumn{4}{>{\centering\arraybackslash\hspace{0pt}}p{0.284\linewidth}}{\textbf{Number of Errors}} \\ 
+\hline
+\multicolumn{1}{>{\centering\hspace{0pt}}p{0.357\linewidth}|}{} & \multicolumn{6}{>{\centering\arraybackslash\hspace{0pt}}p{0.556\linewidth}}{\textbf{Tasks} } \\ 
+\hhline{-------}
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{Users}  & \multicolumn{1}{>{\centering\hspace{0pt}}p{0.136\linewidth}}{\textbf{T1} } & \textbf{T2}  & \multicolumn{1}{>{\centering\hspace{0pt}}p{0.071\linewidth}}{\textbf{T1}} & \multicolumn{1}{>{\centering\hspace{0pt}}p{0.071\linewidth}}{\textbf{T2}} & \multicolumn{1}{>{\centering\hspace{0pt}}p{0.071\linewidth}}{\textbf{T3}} & \textbf{T4} \\ 
+\cmidrule{1-3}\cline{4-6}\cmidrule{7-7}
+ \textbf{U01}  & 49 & 76 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U02} & 97 & 182 & 1 & 0 & 0 & 1 \\
+\textbf{U03}  & 50 & 74 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U04}  & 42 & 57 & 0 & 1 & 0 & 0 \\
+\textbf{U05}  & 64 & 120 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U06}  & 46 & 104 & 0 & 0 & 0 & 0 \\
+\textbf{U07}  & 41 & 81 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U08}  & 35 & 75 & 0 & 1 & 0 & 0 \\
+\textbf{U09}  & 57 & 151 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U10}  & 38 & 88 & 0 & 0 & 0 & 0 \\
+\textbf{U11}  & 31 & 105 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U12}  & 68 & 110 & 0 & 0 & 0 & 0 \\
+\textbf{U13}  & 38 & 108 & 0 & 1 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{U14}  & 52 & 98 & 0 & 0 & 0 & 0 \\
+\textbf{U15} & 39 & 80 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U16} & 38 & 78 & 0 & 0 & 0 & 0 \\
+\textbf{U17} & 40 & 83 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U18} & 51 & 114 & 1 & 0 & 0 & 0 \\
+\textbf{U19} & 29 & 55 & 0 & 2 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U20} & 45 & 107 & 0 & 0 & 0 & 0 \\
+\textbf{U21} & 36 & 65 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U22} & 32 & 116 & 0 & 1 & 0 & 0 \\
+\textbf{U23} & 69 & 128 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U24} & 37 & 58 & 0 & 0 & 0 & 0 \\
+\textbf{U25} & 42 & 87 & 0 & 0 & 0 & 0 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{U26} & 36 & 94 & 0 & 0 & 0 & 0 \\ 
+\cmidrule{1-4}\cline{5-6}\cmidrule{7-7}
+\multicolumn{7}{>{\centering\arraybackslash\hspace{0pt}}p{\linewidth}}{ \textbf{Statistics} } \\ 
+\midrule
+\rowcolor[rgb]{0.851,0.851,0.851}  \textbf{Min}  & 29 & 55 & 0 & 0 & 0 & 0 \\
+ \textbf{Max}  & 97 & 182 & 1 & 2 & 1 & 1 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{Mean}  & 46,23 & 95,92 & 0,07 & 0,23 & 0,11 & 0,03 \\
+ \textbf{Standard Deviation}  & 14,95 & 29,26 & 0,27 & 0,51 & 0,32 & 0,19 \\
+\rowcolor[rgb]{0.851,0.851,0.851} \textbf{Confidence Interval (95\%)}  & 18,39 & 35,98 & 0,3 & 0,6 & 0,4 & 0,2
+\end{tabular}
+}
+\end{table}
+
+By analyzing the table, we can reach some conclusions. First and foremost, we can conclude that the user can create and fully customize a station on an average of 2:30 minutes, which is a good indicator that the platform is fast and intuitive to interact with. Nevertheless, as expected, task 2 was the one who took the most time to complete.
+
+All tasks had a very low number of committed errors. This indicates that users were able to perform the requested tasks in the platform without much complication nor issues. Most of the committed errors were, however, mainly caused by a misplace or opalescent element of the user interface, which we will further analyze in Section ~\ref{sub:obvs}.
+
+\subsubsection{Task Satisfaction}
+
+As mentioned in Section ~\ref{subsub:taskprot}, users were asked to respond to a quick, post-task survey that evaluates the degree of satisfaction felt while performing such task in a quantitative way. This survey had a set of 3 questions, whose answers were on a scale from 0 to 10:
+
+\begin{itemize}
+	\item Rate the ease or difficulty of performing this task, on a scale from 'very difficult' (0) to 'very easy' (10);
+	\item Rate the time it took to complete this task, on a scale from 'less time than expected' (0) to 'more time than expected' (10);
+	\item Rate the likelihood that you would use this feature or task (on a scale from 'not likely at all' (0) to 'very likely' (10).
+\end{itemize}
+
+Regarding the first question, users found all tasks to be very easy to perform, with task 2 being the most difficult (average of 8.23), and task 3 being the easiest (9.7). The overall difficulty average was 9.17, which indicates that users felt no big difficulties whilst interacting with the system. As for the time it took to complete the tasks, in general users thought that it took less time than expected to perform the tasks, with an average of 3.7 per task. Finally, users were found of wanting to use the tested features very frequently. In particular, task 3 (matching the listening of the station) had an average rating of 9.8, meaning that the platform matches users' expectations and desires.
+
+\subsubsection{System Usability Score (SUS)}
+
+In the final survey, users were asked to fill out a \ac{SUS} survey. We grouped the user’s questionnaires and for each one of these the \ac{SUS} was calculated following the guidelines provided on the works of Brooke [28].
+
+The mean rating of our system was 92.94 points, based on Bangor et al. [29]. With this average score, we could make a comparison to understand if our platform is considered 'Worst Imaginable', 'Awful', 'Poor', 'OK', 'Good', or 'Excellent'. By correlating our system, with the adjacent metrics, we conclude that the achieved score falls into the range of what is considered 'Excellent', indicating that users really enjoyed the system and its functionalities.
+
+
+\subsection{Qualitative Analysis}
+
+In this subsection, we analyze the qualitative data we gathered 
+
+
+
+\subsubsection{Retrospective Think-Aloud and Probing}
+
+
+\subsubsection{Final Interview}
+
+\subsection{Observation and Feedback}
+~\ref{sub:obvs}
+
 % #############################################################################
 \section{Discussion}
