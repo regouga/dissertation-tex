@@ -12,7 +12,7 @@ To understand the tasks that our platform must fulfill, the first steps we have 
 
 After the presented research, we can identify our opportunity and act upon it. As such, in the first stage, we need to determine our requirements and accordingly plan the features and tasks that are going to be made available on the platform to fulfill our users' desires. The gathered datasets from sections ~\ref{chap:relatedwork}, ~\ref{chap:userresearch}, and ~\ref{sec:speeddating} provided pivotal information that helped fulfill this task. Then, after we've outlined the goals that our platform must satisfy, we can outset the development of a functional prototype with a working feature set and near ready for general-purpose usage.
 
-In this section, we explain in greater detail the development process that led us to the final Sterio platform. We begin by outlining the requirements and goals that our solution must fulfill. Afterward, we discuss and examine the adopted technologies and services, as well as the overall architecture of the system. Finally, we present a complete overhaul of the crafted features by describing the methods, technical facets, and reasoning behind all components of the application.
+In this section, we explain in greater detail the development process that led us to the final \textit{Sterio} platform. We begin by outlining the requirements and goals that our solution must fulfill. Afterward, we discuss and examine the adopted technologies and services, as well as the overall architecture of the system. Finally, we present a complete overhaul of the crafted features by describing the methods, technical facets, and reasoning behind all components of the application.
 
 
 % #############################################################################
@@ -37,7 +37,7 @@ In the end, a general-purpose platform will emerge that creates a novel listenin
 
 \section{Architecture}
 
-The Sterio platform was developed following a layered architecture, which not only supports the incremental development of systems, but also provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected. ~\cite{Aarsten} Every layer of the Sterio system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
+The \textit{Sterio} platform was developed following a layered architecture, which not only supports the incremental development of systems, but also provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected. ~\cite{Aarsten} Every layer of the \textit{Sterio} system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
 
 The three main layers that compose our system are the Presentation, Business, and Database Layer, represented in Figure ~\ref{fig:arc}. In the following subsections, we explain in greater detail the role of each layer, as well as the reasoning and advantages of the used frameworks and technologies. 
 
@@ -69,9 +69,9 @@ We chose to use Cloud Firestore due to its lean learning curve, ease-of-use, goo
 
 \subsection{Business Layer}
 
-The Business Layer is responsible to encode the real-world business rules that determine how data can be created, stored, and changed. It contrasts with the remainder of the software that might be concerned with lower-level details of managing a database or displaying the user interface, system infrastructure, or generally connecting various parts of the program. ~\cite{Aarsten}
+The Business Layer is responsible for encoding the real-world business rules that determine how data can be created, stored, and changed. It contrasts with the remainder of the software that might be concerned with lower-level details of managing a database or displaying the user interface, system infrastructure, or generally connecting various parts of the program. ~\cite{Aarsten}
 
-For the Sterio platform, we chose to use Google's Firebase~\footnote{For more information on Google's Firebase and Cloud Platform services, visit its \href{https://firebase.google.com/}{official website}.} business logic features. Firebase is a \ac{MBaaS}, which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and \acp{API} exposed by back end applications while also providing features such as user management, push notifications, and integration with social networking services.
+For the \textit{Sterio} platform, we chose to use Google's Firebase~\footnote{For more information on Google's Firebase and Cloud Platform services, visit its \href{https://firebase.google.com/}{official website}.} business logic features. Firebase is a \ac{MBaaS}, which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and \acp{API} exposed by backend applications while also providing features such as user management, push notifications, and integration with social networking services.
 
 Firebase provides several pre-developed, robust, and reliable \acp{SDK} — such as authentication, hosting, storage, and app indexing — that helped us steer the focus of our development efforts to the design and conceiving of the user experience and interface. As with Cloud Firestore, it integrates thoroughly with other Google services — including the Google Cloud Platform, which will be used for the process and synthesizing of the text-to-speech technology — while also allowing the configuration of third-party \acp{API} that will be used in the context of our project.
 
@@ -103,15 +103,15 @@ In the context of our project, Flutter has some key advantages over other techno
 
 \section{Functional Prototype}
 
-Based on the medium-fidelity prototype presented in Section ~\ref{sec:userenactments}, the last — and most important — step of the development cycle was to construct a functional prototype with a fully-working set of features. This prototype should resemble as close as possible to the final representation of the system. 
+Based on the medium-fidelity prototype presented in Section ~\ref{sec:userenactments}, the last — and most crucial — step of the development cycle was to construct a functional prototype with a fully-working set of features. This prototype should resemble as close as possible to the final representation of the system. 
 
-In the following subsections, we describe in detail all functionalities, components, screens, implementations, and technical facets of the Sterio system, as well as the design implications and limitations faced during the development of the prototype. We begin by examining the four main screens of the application — 'Home', 'Search', 'Social', and 'My Stations' — followed by an analysis of the technical reasoning behind the creation, playback, and sharing of stations. 
+In the following subsections, we describe in detail all functionalities, components, screens, implementations, and technical facets of the \textit{Sterio} system, as well as the design implications and limitations faced during the development of the prototype. We begin by examining the four main screens of the application — 'Home', 'Search', 'Social', and 'My Stations' — followed by an analysis of the technical reasoning behind our development rulings.
 
 \newpage
 \subsection{Login, Signup, and Authentication}
 \label{subsec:lsa}
 
-The first interaction the user has with the Sterio platform is the login/signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a signup method, the screen is shown in ~\ref{fig:login2} is presented.
+The first interaction the user has with the \textit{Sterio} platform is the login/signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a signup method, the screen is shown in ~\ref{fig:login2} is presented.
 
 \begin{figure}[htbp]
 	\centering
@@ -141,13 +141,12 @@ As the system integrates with a Spotify Premium account, it is also necessary th
 
 After logging in, the user is prompted with the 'Home' screen, shown in Figure ~\ref{fig:homes}, which is the first and most foregrounding screen of the platform. In this screen, the user can quickly play a station based on recent activity, friends activity, top charts, or other relevant information tailored to the user's taste and usability history. In this screen, the user can also change the settings and preferences of the app, as well as of the signed-in account. Finally, the user can also enter the "Car Mode" of the system, which transforms the ~\ac{UI} in a stripped-down, non-distracting, and easy way for the user to control playback while driving.
 
-In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search for a specific station, content, or even other users to follow and check their profiles. In the same screen, some listening suggestions are also shown, based on the most searched items and trending stations in a given location.
+In the 'Search' screen, shown in Figure ~\ref{fig:searchs1}, the user can search for a specific station, content, or even other users to follow and check their profiles. In the same screen, listening suggestions are also shown, based on the most searched items and trending stations in a given location.
 
 \newpage
 \subsection{'Social' Screen}
 
-The 'Social' screen aggregates all the social activity of the profiles that a given user follows. From there, users can explore what stations their followers are currently listening to, as well as to listen along to such stations (mimicking the experience of a traditional terrestrial radio station). In Section ~\ref{subs:playing}, we explain in greater detail the technical background of this functionality.
-
+The 'Social' screen aggregates all the social activity of the profiles that a given user follows. From there, users can explore what stations their followers are currently listening to, as well as to listen along to such stations (mimicking the experience of a traditional terrestrial radio station). 
 \begin{figure}[htbp]
 	\centering
 	\subfigure[Social screen showing friends that are playing a station]{\label{fig:social1}
@@ -158,12 +157,12 @@ The 'Social' screen aggregates all the social activity of the profiles that a gi
 	\label{fig:mfp1}
 \end{figure}
 
-From the same screen, users can also delve into the shared stations of their friends and family and get recommendations of profiles to follow based on their taste and friends' circle. Coinciding with a news feed of a traditional social network, users can also share and interact with shared media posts, creating a very integrated and cohesive social experience between the users of the platform.
+From the same screen, users can also delve into the shared stations of their friends and family and get recommendations of profiles to follow based on their taste and friends' circle. Coinciding with a news feed of a traditional social network, users can also share and interact with shared media posts, creating a very integrated and cohesive social experience among the users of the platform.
 
 \newpage
 \subsection{'My Stations' Screen}
 
-The last of the four main screens of the platform is the 'My Stations' screen, shown in Figure ~\ref{fig:mys}, where the user can find their own created stations or saved stations created by other users of the platform. It acts as a 'library' of saved stations, making it easy for users to find their desired content. On the same screen, users can press the '+' red button and start the process of creating a new station, which will be added automatically to their library.
+The last of the four main screens of the platform is the 'My Stations' screen, shown in Figure ~\ref{fig:mys}, where the user can find their own created stations, or saved stations created by other users of the platform. It acts as a 'library' of saved stations, making it easy for users to find their desired content. On the same screen, users can press the '+' red button and start the process of creating a new station, which will be added automatically to their library.
 
 \begin{figure}[h]
 \centering
@@ -214,19 +213,17 @@ The second and final step of the creation process of a new station is the select
 
 Each station has its dedicated page, where the user can explore and customize all aspects and features of it. This screen is divided into three sub-screens that fill the latter half of the canvas — the 'blocks', 'schedule', and 'social' screen.
 
-The 'blocks' screen showcases all the added blocks of the station. In this sub-screen, it is possible to configure, add, or remove individual blocks. The 'schedule' screen presents visually the order in which the content inserted from each block will be played. The user can fully customize the order and also remove individual elements. Finally, in the 'search' screen — which is only displayed if the creator of the station allowed its sharing with the community — users can see the profiles that follow the station, as well to accept or decline any changes that other users have suggested.
-
-
+The 'blocks' screen showcases all the added blocks of the station. In this sub-screen, it is possible to configure, add, or remove individual blocks. The 'schedule' screen presents visually the order in which the content inserted from each block will be played. The user can fully customize the order and also remove individual elements. Finally, in the 'search' screen — which is only displayed if the creator of the station allowed its sharing with the community — users can see the profiles that follow the station, as well to accept or decline any changes that other users have suggested to the station's content.
 
 On the first half of the screen, users can examine the station's name, description, artwork cover, duration, and creator (or creators). There, users can also start playing the station, enter its settings screen (where it is possible to adjust some configurations, such as the used text-to-speech voice), or delete the given station.
 
-In the following subsections, we explain in greater detail the logical and technical implementations of three of the available station blocks — Spotify, Podcasts, Weather, and News. 
+In the following subsections, we explain in greater detail the logical and technical implementations of four of the available station blocks — Spotify, Podcasts, Weather, and News. 
 
 
 \subsubsection{Spotify and Podcasts}
 \label{sub:spotify}
 
-The Spotify block serves as the main connection to the music streaming service. From there, users can explore their music library and select their desired content (that could be represented in the form of a single song, artist, album, or even full playlists). To make it easier for users to add content, the recently played songs from Spotify are also displayed. Users can select an unlimited number of items, which are added to the station schedule automatically and in the order of their choice.
+The Spotify block serves as the main connection to the music streaming service. From there, users can explore their music library and select their desired content (that could be represented in the form of a single song, artist, album, or even full playlists). To make it easier for users to add content, the recently played songs from the user's Spotify account are also displayed. Users can select an unlimited number of items, which are added to the station schedule automatically and in the order of their choice.
 
 As mentioned in Section ~\ref{chap:relatedwork}, Spotify also provides access to a growing library of podcasts, which the user can also add to their stations. Nevertheless, although the provider of both music and podcasts is the mentioned music streaming service, a separate block dedicated to Podcasts was created.
 
@@ -240,7 +237,7 @@ As mentioned in Section ~\ref{chap:relatedwork}, Spotify also provides access to
 	\label{fig:spp1}
 \end{figure}
 
-Each item (song, album, playlist, artist, or podcast) is represented by a unique \ac{URI}, which are obtained with the resource to the Spotify Web \ac{API} ~\footnote{For more information on the development resources provided by Spotify, visit the Spotify Developers website.}. The credentials entered by the user (described in Section ~\ref{subsec:lsa}) are used to authenticate and make an API call requesting the desired information. A response JSON file is sent to the backend, where it is processed and, afterward, the information is presented to the user, where they can add the desired content to the station.
+Each item (song, album, playlist, artist, or podcast) is represented by a unique \ac{URI}, which are obtained with the resource to the Spotify Web \ac{API} ~\footnote{For more information on the development resources provided by Spotify, visit the \href{https://developer.spotify.com/documentation/web-api/}{Spotify for Developers website}}. The credentials entered by the user (described in Section ~\ref{subsec:lsa}) are used to authenticate and make an API call requesting the desired information. A response JSON file is sent to the backend, where it is processed and, afterward, the information is presented to the user, where they can add the desired content to the station.
 
 \begin{figure}[h]
 \centering
@@ -250,7 +247,7 @@ Each item (song, album, playlist, artist, or podcast) is represented by a unique
 \end{figure}
 
 
-The Spotify Web \ac{API} provides several useful features in the context of our project. For instance, it is possible to search the entire Spotify catalog for a specific element, get curated playlists created by Spotify’s editorial team, based on popularity, mood, international events, and genres, or even present the best content recommendations based on a variety of terms such as market, seeds (artists, genres, tracks), ranged audio features (danceability, valence, tempo, liveness) and popularity. In the end, this creates a very integrated and personalized experience for the platform's users.
+The Spotify Web \ac{API} provides several useful features in the context of our project. For instance, it is possible to search the entire Spotify catalog for a specific element, get curated playlists created by Spotify’s editorial team based on popularity, mood, international events, and genres, or even present the best content recommendations based on a variety of terms such as market, seeds (artists, genres, tracks), ranged audio features (danceability, valence, tempo, liveness) and popularity. In the end, this creates a very integrated and personalized experience for the platform's users.
 
 The selected \acp{URI} are linked to the matching station and stored in the database, so that when a user plays a station, Spotify can gather this information and use it to play an individual item. This algorithm — that uses Spotify's Playback \ac{API}, rather than the Web \ac{API} — is further explained in detail in Section ~\ref{subs:playing}.
 \newpage
@@ -269,14 +266,14 @@ The selected \acp{URI} are linked to the matching station and stored in the data
 
 The Weather block provides real-time and updated climate information to a given station. Users can choose to listen to the current weather information, hourly forecast for the current day, and/or forecast for the following three days. It is also possible to customize the periodicity of when this information is played in the station, which will change its matching schedule. Finally, users can also set the location from which they want to receive weather information — by default, this is attributed to the user's current location. These settings set by the user are stored in the database.
 
-To gather meteorology information, we rely on the OpenWeather Map \ac{API} ~\footnote{Weather API}, which provides the required information reliably and effortlessly. A 'get' request is made to the \ac{API}, which response is a JSON file containing all the necessary information. 
+To gather meteorology information, we rely on the OpenWeather Map \ac{API} ~\footnote{For more information on used API, visit the \href{https://openweathermap.org/api}{OpenWeather API website.}}, which provides the required information reliably and effortlessly. A 'GET' request is made to the \ac{API}, which response is a JSON file containing all the necessary information. 
 
 \newpage
 \subsubsection{News}
 
 The News block provides a digest of the top headlines to a given station. Users can select the categories of news they wish to listen to, the number of headlines, and the periodicity of the digest. It is also possible to select a specific keyword to fetch news from (e.g. "COVID-19"), or even select the sources from where the headlines are retrieved. These settings set by the user are also stored in the database.
 
-We used the News \ac{API} to fetch this information, which delivers breaking news headlines, and allows the search for articles from news sources and blogs all over the web~\footnote{Text}. Just like on the Weather block, a 'get' request is made to the \ac{API}, which response is a JSON file containing all the requested information by the user.
+We used the News \ac{API} to fetch this information, which delivers breaking news headlines, and allows the search for articles from news sources and blogs all over the web~\footnote{For more information on used API, visit the \href{https://newsapi.org/}{News API website.}}. Just like on the Weather block, a 'GET' request is made to the \ac{API}, which response is a JSON file containing all the requested information by the user.
 
 \begin{figure}[htbp]
 	\centering
@@ -289,9 +286,9 @@ We used the News \ac{API} to fetch this information, which delivers breaking new
 \end{figure}
 
 
-When the News block is played in the station, each headline is synthesized and announced by the text-to-speech software, just like any other block containing readable information. To each headline, a small block of text is added to provide more context on the news. Then, an audio separator is played, so that the user knows when the announcement of the next headline begun.
+When the News block is played in the station, each headline is synthesized and announced by the text-to-speech software, just like any other block containing readable information. To each headline, a small, descriptive block of text is added to provide more context on the news. Then, an audio separator is played, so that the user knows when the announcement of the next headline begun.
 
-The headlines are obtained based on the country and language selected by the user in the signup process. Nevertheless, the user has full control over this matter and can choose to obtain news headlines from a variety of search terms, topics, countries, languages, and categories.
+The headlines are obtained based on the country and language selected by the user in the signup process of the platform. Nevertheless, the user has full control over this matter and can choose to obtain news headlines from a variety of search terms, topics, countries, languages, and categories.
 
 
 
@@ -306,7 +303,7 @@ The headlines are obtained based on the country and language selected by the use
 \subsection{Playing a Station}
 ~\label{subs:playing}
 
-When the station is fully customized to the user's taste, it is then possible to play it. To do so, the user simply needs to tap the 'play' button, located either at the station information screen or at the preview card displayed on the 'My Stations' screen. 
+When the station is fully customized to the user's taste, it is then possible to play it. To do so, the user simply needs to tap the 'Play' button, located either at the station information screen or at the preview card displayed on the 'My Stations' screen. 
 
 After tapping the 'Play' button, a modal, represented in Figure ~\ref{fig:play1} is shown to the user, which acts as a 'loading' screen while the backend of the platform performs the necessary tasks to allow the playing of the station. To give a radio-like experience, it is played an audio track that mimics the sounds of tuning into a traditional terrestrial radio station, which automatically stops when all loading processes are complete. 
 
@@ -322,7 +319,7 @@ After tapping the 'Play' button, a modal, represented in Figure ~\ref{fig:play1}
 
 \newpage
 
-Finally, the station starts playing, and a 'now playing' controller bar, shown in Figure ~\ref{fig:play2}, is displayed. This bar provides quick and easy information to the user regarding what's currently playing, as well as a play/pause button to stop playback when needed. If the user taps this bar, the 'Now Playing' screen, showcased in Figure ~\ref{fig:npslol} is shown, which provides more playback controls and information regarding the currently playing station, including the content that will be played next in the schedule.
+Finally, the station starts playing, and a 'Now Playing' controller bar, shown in Figure ~\ref{fig:play2}, is displayed. This bar provides quick and easy information to the user regarding what's currently playing, as well as a 'Play/Pause' button to stop playback when needed. If the user taps this bar, the 'Now Playing' screen, showcased in Figure ~\ref{fig:npslol} is shown, which provides more playback controls and information regarding the currently playing station, including the content that will be played next in the schedule.
 
 \begin{figure}[htbp]
 	\centering
@@ -334,9 +331,6 @@ Finally, the station starts playing, and a 'now playing' controller bar, shown i
 	\label{fig:npslol}
 \end{figure}
 
-
-To play the station, a 5-step algorithm is performed before entering the main playing loop. This algorithm is represented in Figure ~\ref{fig:alg}.
-
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{./Images/code/alg.png}
@@ -344,23 +338,26 @@ To play the station, a 5-step algorithm is performed before entering the main pl
 \label{fig:alg}
 \end{figure}
 
+
+To play the station, a 5-step algorithm is performed before entering the main playing loop. This algorithm is represented in Figure ~\ref{fig:alg}.
+
 After pressing the play button, the first step of the algorithm is to check if the user has changed the configurations of any of the selected blocks, or if the schedule playing order has been modified. If it is the case, the algorithm updates and processes the schedule so that it is performed on the most recent configurations of the station.
 
 Following this process, the platform will connect to the Spotify Controller, which is a dedicated component of the code that connects to the Spotify Playback \ac{API}. As mentioned in Section ~\ref{sub:spotify}, this is a different \ac{API} library from the one used to select the desired content from the music streaming service.
 
-To control a user's Spotify playback, the \ac{API} requires that the Spotify application is installed on the user's device and that it is opened in the background so that it can receive requests. This is a limitation set by the Spotify \ac{API} that we can't bypass. After the connection to the Spotify Controller is successful, then all the selected content (\acp{URI}) is added to the user's Spotify listening queue.
+To control a user's Spotify playback, the \ac{API} requires that the Spotify application is installed on the user's device and that it is opened in the background, so that it can receive requests. This is a limitation set by the Spotify \ac{API} that we can't bypass. After the connection to the Spotify Controller is successful, then all the selected content (\acp{URI}) is added to the user's Spotify listening queue.
 
-After the Spotify connection is handled, all the information from the remaining station's blocks is fetched, so that it is as updated as possible. The responses are then processed into a natural spoken text, which is then sent as a GET request to the Google Cloud Text-to-Speech API. The API responds with a set of encoded information containing the synthesized sound bytes, which are locally converted into audio files. These audio files are then stored in the cache of the platform which, after playing the station, are discarded to save storage space.
+After the Spotify connection is handled, all the information from the remaining station's blocks is fetched, so that it is as updated and real-time as possible. The responses are then processed into a natural spoken text, which is then sent as a 'GET' request to the Google Cloud Text-to-Speech API~\footnote{For more information on used API for the text-to-speech synthesizer, visit the \href{https://cloud.google.com/text-to-speech/docs}{Google Cloud Text-to-Speech API website.}}. The API responds with a set of encoded information containing the synthesized sound bytes, which are locally converted into audio files. These audio files are then stored in the cache of the platform which, after playing the station, are discarded to save storage space.
 
-Then, if Spotify successfully connected to the platform, and if all the requested information from the blocks is synthesized into text-to-speech audio files, the last step before entering the main playing loop is to set the now playing station as the current 'state' of the platform. This allows the access and control of the currently playing station throughout the interface, as shown in Figures ~\ref{fig:play2} and ~\ref{fig:npslol}.
+Then, if Spotify successfully connected to the platform, and if all the requested information from the blocks is successfully synthesized into text-to-speech audio files, the last step before entering the main playing loop is to set the 'Now Playing' station as the current 'state' of the platform. This allows the access and control of the currently playing station throughout the interface, as shown in Figures ~\ref{fig:play2} and ~\ref{fig:npslol}.
 
-Finally, the station enters its main playing loop. Every station begins with a radio transition jingle or audio effect that serves as a separator between content, mimicking a traditional terrestrial radio station, and granting a more cohesive and integrated experience to the user. This transition is naturally between music tracks or other content to allow continued attention in the periphery.
+Finally, the station enters its main playing loop. Every station begins with a radio transition jingle or audio effect that serves as a separator between content, mimicking a traditional terrestrial radio station, and granting a more cohesive and integrated experience to the user. This transition is naturally between music tracks or other content to allow continued attention in the periphery. Transitions can also be turned off if the user wants a more synthetic listening experience.
 
-Following this introductory audio effect, the algorithm checks whether the next item of the schedule is a Spotify \ac{URI} or not. If it is, it plays it by simply calling a 'play' function provided by the Spotify controller, and sets the now playing state of the application. Then, the algorithm checks if the current Spotify content has finished playing, and, if so, it plays an audio transition and another iteration of the loop is processed.
+Following this introductory audio effect, the algorithm checks whether the next item of the schedule is a Spotify \ac{URI} or not. If it is, it plays it by simply calling a 'play' function provided by the Spotify Controller, and sets the now playing state of the application. Then, the algorithm checks if the current Spotify content has finished playing, and, if so, it plays an audio transition and another iteration of the loop is processed.
 
 The most difficult challenge we faced while coding this algorithm was the process of determining whether the Spotify content has finished playing or not. The Spotify Playback \ac{API} does not provide an easy way of accessing this information, allowing only the access of a limited set of playback information, such as the current position of a content's playback. To bypass this limitation, we crafted a sub-algorithm that checks second by second this information, and when the current position of a content's playback matches the total length of such content, an alert is sent to indicate that the content has finished playing. This approach adds complexity in terms of performance and resource usage, but it was the only way we found to bypass this limitation set by the Spotify Playback \ac{API}.
 
-Conversely, if the next item on the schedule is not a Spotify \ac{URI}, then the algorithm picks up the matching synthesized audio file and plays it. At the same time, matching background music is added while the text-to-speech audio file is played, so that the user creates more empathy while listening to the information. The now playing state of the application is also set, and if the algorithm checks if the current content has finished playing, it plays an audio transition, and another iteration of the loop is processed. As we're processing local files, we didn't face the same issues in determining if the currently playing content has finished playing, unlike we had with Spotify playback.
+Conversely, if the next item on the schedule is not a Spotify \ac{URI}, then the algorithm picks up the matching synthesized audio file and plays it. At the same time, matching background music is added while the text-to-speech audio file is played, so that the user creates more empathy while listening to the information. The now playing state of the application is also set, and if the algorithm checks if the current content has finished playing, it plays an audio transition, and another iteration of the loop is processed. As we're processing local files, we didn't face the same issues in determining if the currently playing content has finished playing, unlike we had with Spotify content playback.
 
 When the station finishes playing its matching schedule, the playback is stopped and all the local cached files are deleted. Nevertheless, the user can choose to loop or repeat the station, allowing a non-stop playback of content.
 
