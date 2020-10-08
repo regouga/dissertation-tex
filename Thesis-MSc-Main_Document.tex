@@ -60,6 +60,13 @@
 \begin{acknowledgments}
 	\input{./Chapters/Thesis-MSc-Acknowledgments.tex}
 \end{acknowledgments}
+
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \newpage
+    }
+\afterpage{\blankpage}
 %
 % -----------------------------------------------------------------------------
 % THE ABSTRACT
@@ -72,9 +79,10 @@
 \end{keywords}
 \clearpage
 \thispagestyle{empty}
+
 %% If Printing on DOUBLE SIDED pages, the second page should be white.
 %% Otherwise, comment the following command:
-%\cleardoublepage
+\cleardoublepage
 %
 % -----------------------------------------------------------------------------
 % O RESUMO
@@ -89,7 +97,7 @@
 \thispagestyle{empty}
 %% If Printing on DOUBLE SIDED pages, the second page should be white.
 %% Otherwise, comment the following command:
-%\cleardoublepage
+\cleardoublepage
 %
 % -----------------------------------------------------------------------------
 % This is required for the Fancy Chapters with minitoc
@@ -123,7 +131,7 @@
 % If Printing on DOUBLE SIDED pages, the second page should be white.
 % Otherwise, comment the following command:
 \let\cleardoublepage\relax
-%\cleardoublepage
+\cleardoublepage
 % -----------------------------------------------------------------------------
 % List of Algorithms
 % If not used, comments the lines!
