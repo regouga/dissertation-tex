@@ -12,7 +12,7 @@ To understand the tasks that our platform must fulfill, the first steps we have 
 
 After the presented research, we can identify our opportunity and act upon it. As such, in the first stage, we need to determine our requirements and accordingly plan the features and tasks that are going to be made available on the platform to fulfill our users' desires. The gathered datasets from sections ~\ref{chap:relatedwork}, ~\ref{chap:userresearch}, and ~\ref{sec:speeddating} provided pivotal information that helped fulfill this task. Then, after we've outlined the goals that our platform must satisfy, we can outset the development of a functional prototype with a working feature set and near ready for general-purpose usage.
 
-In this section, we explain in greater detail the development process that led us to the final \textit{Sterio} platform. We begin by outlining the requirements and goals that our solution must fulfill. Afterward, we discuss and examine the adopted technologies and services, as well as the overall architecture of the system. Finally, we present a complete overhaul of the crafted features by describing the methods, technical facets, and reasoning behind all components of the application.
+In this section, we explain in greater detail the development process that led us to the final \textit{Sterio} system. We begin by outlining the requirements and goals that our solution must fulfill. Afterward, we discuss and examine the adopted technologies and services, as well as the overall architecture of the system. Finally, we present a complete overhaul of the crafted features by describing the methods, technical facets, and reasoning behind all components of the application.
 
 
 % #############################################################################
@@ -37,7 +37,7 @@ In the end, a general-purpose platform will emerge that creates a novel listenin
 
 \section{Architecture}
 
-The \textit{Sterio} platform was developed following a layered architecture, which not only supports the incremental development of systems, but also provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected~\cite{Aarsten}. Every layer of the \textit{Sterio} system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
+The \textit{Sterio} system was developed following a layered architecture, which not only supports the incremental development of systems, but also provides a changeable structure so that an equivalent layer can replace another one. Moreover, when a given layer is changed or updated, only its adjacent layer is affected~\cite{Aarsten}. Every layer of the \textit{Sterio} system can be used individually with other similar applications or can be easily changed without compromising the other layers. 
 
 The three main layers that compose our system are the Presentation, Business, and Database Layer, represented in Figure ~\ref{fig:arc}. In the following subsections, we explain in greater detail the role of each layer, as well as the reasoning and advantages of the used frameworks and technologies. 
 
@@ -71,7 +71,7 @@ We chose to use Cloud Firestore due to its lean learning curve, ease-of-use, goo
 
 The Business Layer is responsible for encoding the real-world business rules that determine how data can be created, stored, and changed. It contrasts with the remainder of the software that might be concerned with lower-level details of managing a database or displaying the user interface, system infrastructure, or generally connecting various parts of the program~\cite{Aarsten}. 
 
-For the \textit{Sterio} platform, we chose to use Google's Firebase~\footnote{For more information on Google's Firebase and Cloud Platform services, visit its \href{https://firebase.google.com/}{official website}.} business logic features. Firebase is a \ac{MBaaS}, which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and \acp{API} exposed by backend applications while also providing features such as user management, push notifications, and integration with social networking services.
+For the \textit{Sterio} system, we chose to use Google's Firebase~\footnote{For more information on Google's Firebase and Cloud Platform services, visit its \href{https://firebase.google.com/}{official website}.} business logic features. Firebase is a \ac{MBaaS}, which is a model for providing web app and mobile app developers with a way to link their applications to backend cloud storage and \acp{API} exposed by backend applications while also providing features such as user management, push notifications, and integration with social networking services.
 
 Firebase provides several pre-developed, robust, and reliable \acp{SDK} — such as authentication, hosting, storage, and app indexing — that helped us steer the focus of our development efforts to the design and conceiving of the user experience and interface. As with Cloud Firestore, it integrates thoroughly with other Google services — including the Google Cloud Platform, which will be used for the process and synthesizing of the text-to-speech technology — while also allowing the configuration of third-party \acp{API} that will be used in the context of our project.
 
@@ -95,7 +95,7 @@ Based on the preliminary user research presented in Section ~\ref{chap:userresea
 \end{figure}
 
 
-We chose to develop the Sterio platform using Flutter~\footnote{To learn more about the Flutter framework, consult the \href{https://flutter.dev/}{official website}.}, which is an \ac{UI} toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Flutter apps are written in the Dart~\footnote{For more information on the Dart programming language, visit its \href{https://dart.dev/}{official website}.} programming language and make use of many of the language's more advanced features~\cite{Payne2019}.
+We chose to develop the system using Flutter~\footnote{To learn more about the Flutter framework, consult the \href{https://flutter.dev/}{official website}.}, which is an \ac{UI} toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Flutter apps are written in the Dart~\footnote{For more information on the Dart programming language, visit its \href{https://dart.dev/}{official website}.} programming language and make use of many of the language's more advanced features~\cite{Payne2019}.
 
 In the context of our project, Flutter has some key advantages over other technologies. To start, although it has been built as a mobile-first toolkit in the first stage, Flutter is now a cross-platform development tool that allows the development of mobile (on the Android and iOS operating systems) and desktop apps without compounding changes to the codebase. This ensures that our platform renders well on a variety of devices and windows or screen sizes, without limiting our endeavors~\cite{H.GillbertMiller2011}. Secondly, in comparison with other mobile frameworks, Flutter reduces the code development time by a wide margin. In a large and complex project such as ours, this is a crucial advantage that will lead us to a robust final product without the need for allocating umpteen resources. Finally, Flutter offers a variety of advanced tools that allow us to achieve a great user experience and interface design, which will help us achieve our goals. ~\cite{Payne2019}
 
@@ -111,7 +111,7 @@ In the following subsections, we describe in detail all functionalities, compone
 \subsection{Login, Signup, and Authentication}
 \label{subsec:lsa}
 
-The first interaction the user has with the \textit{Sterio} platform is the login/signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a signup method, the screen is shown in ~\ref{fig:login2} is presented.
+The first interaction the user has with the \textit{Sterio} system is the login/signup screen, shown in Figure ~\ref{fig:login1}. There, the user can choose to login with an Apple or Facebook account, or with an e-mail. If the user chooses to use one of the first two methods, an in-app browser window is shown so that the user can enter the required credentials. If the user chooses to use an e-mail as a signup method, the screen is shown in ~\ref{fig:login2} is presented.
 
 \begin{figure}[htbp]
 	\centering
